@@ -26,6 +26,11 @@ body {
     margin: auto;
 }
 
+.table {
+    width: 80%;
+    margin: auto;
+}
+
 footer {
     text-align: center;
 }
