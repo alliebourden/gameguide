@@ -17,9 +17,15 @@ body {
     display: block;
     float: left;
     color: #f2f2f2;
+    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
   }
+
+.navbar a:hover {
+    background-color: #d62c32;
+    color: white;
+}
 
 .about {
     width: 80%;
