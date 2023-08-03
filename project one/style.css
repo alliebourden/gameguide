@@ -37,6 +37,10 @@ body {
     margin: auto;
 }
 
+.table th,td {
+    padding: 10px;
+}
+
 footer {
     text-align: center;
 }
