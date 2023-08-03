@@ -50,8 +50,9 @@ body, html {
 
 div.banner-container {
     width: 30%;
-    background-color: rgba(1, 1, 1, 0.6);
+    background-color: rgba(214, 152, 60, 0.75);
     height: 30%;
+    border-radius: 5px;
 }
 
 .about {
