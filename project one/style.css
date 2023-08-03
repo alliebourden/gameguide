@@ -48,5 +48,16 @@ footer {
     background-color: #3799E1;
     color: white;
     padding-bottom: 14px;
+}
+
+footer a:link {
+    text-decoration: none;
+    color: #d6983c;
+    background-color: transparent;
+}
+
+footer a:hover {
+    color: #d62c32;
+    background-color: transparent;
     text-decoration: none;
 }
