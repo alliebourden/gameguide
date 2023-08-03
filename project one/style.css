@@ -42,5 +42,11 @@ body {
 }
 
 footer {
+    display: block;
     text-align: center;
+    overflow: hidden;
+    background-color: #3799E1;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
 }
