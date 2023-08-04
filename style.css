@@ -41,18 +41,18 @@ body, html {
 
 .banner-container {
     text-align: center;
-    position: relative;
-    top: 60%;
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(255, 255, 255);
-  }
-
-div.banner-container {
+    color: white;
     width: 30%;
     background-color: rgba(214, 152, 60, 0.75);
     height: 30%;
     border-radius: 5px;
+    display: grid;
+    align-content: center;
+ 
 }
 
 .about {
@@ -63,6 +63,8 @@ div.banner-container {
 .table {
     width: 80%;
     margin: auto;
+    display: flex;
+    justify-content: center;
 }
 
 .table th,td {
