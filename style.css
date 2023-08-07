@@ -60,15 +60,10 @@ body, html {
     margin: auto;
 }
 
-.table {
-    width: 80%;
-    margin: auto;
-    display: flex;
+.gg-container {
+	display: flex;
     justify-content: center;
-}
-
-.table th,td {
-    padding: 10px;
+    flex-wrap: wrap;
 }
 
 footer {
