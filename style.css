@@ -4,18 +4,21 @@
     margin-right: auto;
 }
 
-body {
+body, html {
     font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    margin: 0;
 }
 
 .navbar {
+    display: flex;
     overflow: hidden;
     background-color: #3799E1;
+    justify-content: center;
 }
 
 .navbar a {
-    display: block;
-    float: left;
+    display: flex;
     color: #f2f2f2;
     text-align: center;
     padding: 14px 16px;
@@ -27,18 +30,54 @@ body {
     color: white;
 }
 
+.banner {
+    background-image: url(images/gameguide-banner.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner-container {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    width: 30%;
+    background-color: rgba(214, 152, 60, 0.75);
+    height: 30%;
+    border-radius: 5px;
+    display: grid;
+    align-content: center;
+ 
+}
+
 .about {
-    width: 80%;
-    margin: auto;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
-.table {
-    width: 80%;
-    margin: auto;
+.gg-container {
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: rgba(214, 152, 60, 0.90);
+    border-radius: 5px;
 }
 
-.table th,td {
-    padding: 10px;
+.flex-item {
+    padding: 14px;
+    min-width: 150px;
+    text-align: center;
+}
+
+#dropdown {
+    padding-bottom: 14px;
 }
 
 footer {
@@ -47,17 +86,18 @@ footer {
     overflow: hidden;
     background-color: #3799E1;
     color: white;
+    margin-top: 14px;
     padding-bottom: 14px;
 }
 
-footer a:link {
+.mailbutton {
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 5px;
     text-decoration: none;
-    color: #d6983c;
-    background-color: transparent;
 }
 
-footer a:hover {
-    color: #d62c32;
-    background-color: transparent;
-    text-decoration: none;
+.mailbutton:hover {
+    background-color: #0056b3;
 }
