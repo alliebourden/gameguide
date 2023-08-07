@@ -62,10 +62,12 @@ body, html {
 
 .gg-container {
 	display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
     margin-left: 10%;
     margin-right: 10%;
+    background-color: #d6983c;
+    border-radius: 5px;
 }
 
 .flex-item {
