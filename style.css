@@ -51,6 +51,7 @@ body, html {
     margin-right: 30%;
     background-color: rgba(214, 152, 60, 0.75);
     border-radius: 5px;
+    min-width: 250px;
 }
 
 .banner-container h1 {
