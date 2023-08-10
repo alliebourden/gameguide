@@ -40,6 +40,15 @@ body, html {
     position: relative;
 }
 
+.banner-about {
+    background-image: url(images/gameguide-banner2.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .banner-container {
     margin: 0;
     position: absolute;
