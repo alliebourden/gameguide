@@ -40,6 +40,33 @@ body, html {
     position: relative;
 }
 
+.banner-about {
+    background-image: url(images/gameguide-banner2.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner-gg {
+    background-image: url(images/gameguide-banner3.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner-contact {
+    background-image: url(images/gameguide-banner4.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .banner-container {
     margin: 0;
     position: absolute;
@@ -63,6 +90,32 @@ body, html {
 .about {
     margin-left: 22.5%;
     margin-right: 22.5%;
+}
+
+.gg-info {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+}
+
+.contact-info {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+}
+
+.gg-container {
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: rgba(214, 152, 60, 0.90);
+    border-radius: 5px;
+}
+
+.flex-item {
+    padding: 14px;
+    min-width: 150px;
+    text-align: center;
 }
 
 .gg-container {
