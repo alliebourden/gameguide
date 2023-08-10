@@ -49,6 +49,15 @@ body, html {
     position: relative;
 }
 
+.banner-gg {
+    background-image: url(images/gameguide-banner3.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .banner-container {
     margin: 0;
     position: absolute;
