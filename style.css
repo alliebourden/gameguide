@@ -65,6 +65,11 @@ body, html {
     margin-right: 22.5%;
 }
 
+.gg-info {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+}
+
 .gg-container {
 	display: flex;
     justify-content: space-around;
