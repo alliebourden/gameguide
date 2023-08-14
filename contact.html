@@ -29,7 +29,7 @@
 
     <main>
         <div class="contact-info">">
-            <form onsubmit="sendEmail(); reset(); return false;">
+            <form action="https://formspree.io/f/xzbleyea" method="POST">
               <label for="name"><h4>Name</h4></label>
               <input type="text" id="name" name="Your Name" placeholder="Your Name" required>
               <label for="email"><h4>Your Email</h4></label>
@@ -41,14 +41,6 @@
               <button type="submit" id="btn">SEND</button>
             </form>
         </div>
-        <script src>"https://smtpjs.com/v3/smtp.js"</script>
-        <script>
-          var btn = document.getElementById('btn');
-          btn.addEventListener('click', function(e) {
-            e.preventDefault()
-            console.log('hi');
-          })
-        </script>
     </main>
     <footer>
       <p id="contact">Website designed by Allie Bourden</p>
