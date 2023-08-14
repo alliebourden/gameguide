@@ -97,11 +97,6 @@ body, html {
     margin-right: 22.5%;
 }
 
-.contact-info {
-    margin-left: 22.5%;
-    margin-right: 22.5%;
-}
-
 .gg-container {
 	display: flex;
     justify-content: space-around;
@@ -136,6 +131,46 @@ body, html {
 
 #dropdown {
     padding-bottom: 14px;
+}
+
+.contact-info {
+    width: 100%;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background: #d6983c;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+form input, form textarea {
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    outline: none;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 15px;
+    background: #3799E1;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
 }
 
 footer {
