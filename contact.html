@@ -29,7 +29,7 @@
 
     <main>
         <div class="contact-info">">
-            <form>
+            <form onsubmit="sendEmail(); reset(); return false;">
               <label for="name"><h4>Name</h4></label>
               <input type="text" id="name" name="Your Name" placeholder="Your Name" required>
               <label for="email"><h4>Your Email</h4></label>
@@ -38,9 +38,17 @@
               <input type="text" id="subject" name="subject" placeholder="Subject">
               <label for="message"><h4>Your Message</h4></label>
               <textarea id="message" name="message" placeholder="Write something.." required></textarea>
-              <button type="submit">SEND</button>
+              <button type="submit" id="btn">SEND</button>
             </form>
         </div>
+        <script src>"https://smtpjs.com/v3/smtp.js"</script>
+        <script>
+          var btn = document.getElementById('btn');
+          btn.addEventListener('click', function(e) {
+            e.preventDefault()
+            console.log('hi');
+          })
+        </script>
     </main>
     <footer>
       <p id="contact">Website designed by Allie Bourden</p>
