@@ -97,11 +97,6 @@ body, html {
     margin-right: 22.5%;
 }
 
-.contact-info {
-    margin-left: 22.5%;
-    margin-right: 22.5%;
-}
-
 .gg-container {
 	display: flex;
     justify-content: space-around;
@@ -122,34 +117,45 @@ body, html {
     padding-bottom: 14px;
 }
 
-input[type=text], select, textarea {
+.contact-info {
     width: 100%;
-    padding: 14px;
-    border: 1px solid #d6983c;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: vertical;
-  }
-  
-  input[type=submit] {
-    background-color: #0056b3;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  input[type=submit]:hover {
-    background-color: #d62c32;
-  }
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-  .contact-form {
-    border-radius: 5px;
-    background-color: #d6983c;
+form {
+    background: #d6983c;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+form input, form textarea {
+    border: 0;
+    margin: 10px 0;
     padding: 20px;
-    margin-top: 14px;
-  }
+    outline: none;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 15px;
+    background: #3799E1;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+}
 
 footer {
     display: block;

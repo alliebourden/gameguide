@@ -28,22 +28,18 @@
   </div>
 
     <main>
-        <div class="contact-info">
-          <div class="contact-form">
-            <form action="contact-form.php">
-              <label for="fname"><h4>First Name</h4></label>
-              <input type="text" id="fname" name="firstname" placeholder="First Name">
-              <label for="lname"><h4>Last Name</h4></label>
-              <input type="text" id="lname" name="lastname" placeholder="Last Name">
-              <label for="mail"><h4>Your Email</h4></label>
-              <input type="text" id="mail" name="mail" placeholder="Your Email">
+        <div class="contact-info">">
+            <form>
+              <label for="name"><h4>Name</h4></label>
+              <input type="text" id="name" name="Your Name" placeholder="Your Name" required>
+              <label for="email"><h4>Your Email</h4></label>
+              <input type="text" id="email" name="email" placeholder="Your Email" required>
               <label for="subject"><h4>Subject</h4></label>
               <input type="text" id="subject" name="subject" placeholder="Subject">
               <label for="message"><h4>Your Message</h4></label>
-              <textarea id="message" name="message" placeholder="Write something.."></textarea>
-              <input type="submit" value="Submit">
+              <textarea id="message" name="message" placeholder="Write something.." required></textarea>
+              <button type="submit">SEND</button>
             </form>
-          </div>
         </div>
     </main>
     <footer>
