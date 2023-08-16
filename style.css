@@ -106,7 +106,7 @@ body, html {
     margin-left: 22.5%;
     margin-right: 22.5%;
     display: block;
-    text-align: center
+    text-align: center;
 }
 
 .gg-info {
@@ -132,6 +132,13 @@ body, html {
 
 #dropdown {
     padding-bottom: 14px;
+}
+
+.contact-text {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+    display: block;
+    text-align: center;
 }
 
 .contact-info {
