@@ -90,6 +90,8 @@ body, html {
 .landing {
     margin-left: 27.5%;
     margin-right: 27.5%;
+    display: block;
+    text-align: center;
 }
 
 .cta-button {
