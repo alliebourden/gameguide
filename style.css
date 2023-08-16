@@ -87,6 +87,11 @@ body, html {
     color: white;
 }
 
+.landing {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+}
+
 .about {
     margin-left: 22.5%;
     margin-right: 22.5%;
