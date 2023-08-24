@@ -1,11 +1,12 @@
-const url = "https://bgg-json.azurewebsites.net";
+const url = 'https://bgg-json.azurewebsites.net';
 
-async function getHotGames() {
+const getHotGames = async () => {
     try {
-    const res = await fetch(`${url}/hot`);
-    console.log(res);
-    const hotgames = await res.json();
-    console.log(hotgames);
-} catch (err) {
-    console.log(err)
-}}
+        const res = await fetch(`${url}/hot`);
+        const hotgames = await res.json();
+        console.log(hotgames);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
