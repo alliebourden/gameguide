@@ -1,5 +1,5 @@
-let url = "https://api.boardgameatlas.com/api/search?"
-const client_id = "JHVAsnwvSz"
+const url = "https://bgg-json.azurewebsites.net/"
+
 let players = document.getElementById("players").value
 let playtime = document.getElementById("playtime").value
 let categories = document.getElementById("categories").value
