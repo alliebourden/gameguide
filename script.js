@@ -4,7 +4,14 @@ const getHotGames = async () => {
     try {
         const res = await fetch(`${url}/hot`);
         const hotgames = await res.json();
-        console.log(hotgames);
+        let limit = 10;
+        let i = 0
+        hotgames.forEach(hotgame => {
+            if (i < limit) {
+                console.log(hotgame.name);
+            }
+            i++;
+        });
     } catch (err) {
         console.log(err)
     }
