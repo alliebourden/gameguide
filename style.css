@@ -89,25 +89,24 @@ body, html {
     margin: 0;
 }
 
-.navbar {
-    display: flex;
-    overflow: hidden;
-    background-color: #3799E1;
-    justify-content: center;
+.nav {
+	min-height: 70px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 24px;
+	transition: all 0.3s ease-in-out;
 }
 
-.navbar a {
-    display: flex;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
+.nav-list {
+	display: flex;
+	column-gap: 40px;
+}
 
-.navbar a:hover {
-    background-color: #d62c32;
-    color: white;
+.nav-link {
+	color: white;
+	font-size: 15px;
+	transition: color 0.4s;
 }
 
 .landing {
