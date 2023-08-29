@@ -128,6 +128,8 @@ body, html {
 .nav--open {
 	transform: translate(0) !important;
     transition: all 0.3s ease-in-out;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .hamburger--open .bar:nth-child(1) {
@@ -166,6 +168,10 @@ body, html {
 	.hamburger {
 		display: block;
 	}
+
+    .banner-container {
+        display: none;
+    }
 }
 
 .landing {
