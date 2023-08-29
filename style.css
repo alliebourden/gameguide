@@ -147,17 +147,16 @@ body, html {
         position: fixed;
 		top: 60px;
 		background-color: #3799E1;
-		width: 100px;
-		padding: 10px 0 25px;
 		justify-content: center;
         z-index: 1;
-        transform: translate(400%);
+        transform: translate(-400%);
 	}
 	
 	.nav-list {
 		flex-direction: column;
-		align-items: center;
 		row-gap: 20px;
+        align-items: center;
+        padding: 0;
 	}
 	
 	.nav-link {
@@ -166,7 +165,6 @@ body, html {
 	
 	.hamburger {
 		display: block;
-        transition: 
 	}
 }
 
