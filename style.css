@@ -145,7 +145,7 @@ main button {
     outline: none;
     cursor: pointer;
     width: 150px;
-    margin: 20px auto 0;
+    margin: 20px auto 20px;
     border-radius: 30px;
 }
 
