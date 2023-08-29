@@ -32,14 +32,26 @@ getHotGames().then(r => {
     })
     } )
 
-    getHotGames().then(r => {
-        let i = 0;
-        let limit = 10;
-        r.forEach(hotgame => {
-            if (i < limit) {
-                let year = document.getElementById(`year${i}`);
-                year.innerHTML = hotgame.yearPublished;
-                i++;
-            }    
-        })
-        } )
+getHotGames().then(r => {
+    let i = 0;
+    let limit = 10;
+    r.forEach(hotgame => {
+        if (i < limit) {
+            let year = document.getElementById(`year${i}`);
+            year.innerHTML = hotgame.yearPublished;
+            i++;
+        }    
+    })
+    } )
+
+getHotGames().then(r => {
+    let i = 0;
+    let limit = 10;
+    r.forEach(hotgame => {
+        if (i < limit) {
+            let image = document.getElementById(`image${i}`);
+            image.HTMLImageElement = hotgame.thumbnail;
+            i++;
+        }    
+    })
+    } )
