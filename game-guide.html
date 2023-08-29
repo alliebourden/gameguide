@@ -23,30 +23,31 @@
 
   <div class="banner-gg">
     <div class="banner-container">
-      <h1>How to use GameGuide</h1>
+      <h1>GameGuide</h1>
     </div>
   </div>
 
   <main>
     <div class="gg-info">
-      <p>Aenean in lacus sit amet urna sodales iaculis. Duis quis justo massa. Mauris hendrerit finibus eros, id euismod lacus euismod dapibus. Morbi mi elit, ornare eu mauris at, tempor porttitor velit. Nulla at lorem fermentum, finibus nunc et, accumsan nulla. Vestibulum sit amet nibh viverra, bibendum dolor eu, placerat nisi. Mauris vestibulum mollis risus. Donec justo dolor, bibendum at egestas tincidunt, tempor eu arcu. Nunc metus magna, lobortis eget consectetur sed, porttitor tempus nisl.</p>
+      <p>Click the button below to see the current top Hot Games! You can then click on a game you are interested in to learn more information about it and see where it can be purchased.</p>
       </div>
     </div>
+    <button onClick = "getHotGames()">Get Hot Games</button>
+    
+    <div class="gg-container">
+    <p class="flex-item" id = "output0"></p>
+    <p class="flex-item" id = "output1"></p>
+    <p class="flex-item" id = "output2"></p>
+    <p class="flex-item" id = "output3"></p>
+    <p class="flex-item" id = "output4"></p>
+    <p class="flex-item" id = "output5"></p>
+    <p class="flex-item" id = "output6"></p>
+    <p class="flex-item" id = "output7"></p>
+    <p class="flex-item" id = "output8"></p>
+    <p class="flex-item" id = "output9"></p>
+    </div>
 
-    <p id = "output0"></p>
-    <p id = "output1"></p>
-    <p id = "output2"></p>
-    <p id = "output3"></p>
-    <p id = "output4"></p>
-    <p id = "output5"></p>
-    <p id = "output6"></p>
-    <p id = "output7"></p>
-    <p id = "output8"></p>
-    <p id = "output9"></p>
-
-    <button onClick = "getHotGames()">SUBMIT</button>
-
-    <div class="gg-container" id="gameguide">
+    <!-- <div class="gg-container" id="gameguide">
       <div class="flex-item">
         <h4>Players</h4>
         <select id="players" name="players">
@@ -85,7 +86,7 @@
       </div>
     </div>
     <button type="submit" id="sub.btn">SUBMIT</button>
-    <div>
+    <div> -->
       <!--place for game suggestion to populate-->
     </div>
   </main>
