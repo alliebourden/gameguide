@@ -4,57 +4,6 @@
     margin-right: auto;
 }
 
-ul {
-	list-style: none;
-}
-
-a {
-	color: white;
-	text-decoration: none;
-}
-
-.header {
-	background-color: #3799E1;
-	position: fixed;
-	width: 100%;
-	top: 0;
-}
-
-.header-content {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 0 30px;
-	min-height: 60px;
-}
-
-body, html {
-    font-family: 'Poppins', sans-serif;
-    height: 100%;
-    margin: 0;
-}
-
-.navbar {
-    display: flex;
-    overflow: hidden;
-    background-color: #3799E1;
-    justify-content: center;
-}
-
-.navbar a {
-    display: flex;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 1.5rem;
-  }
-
-.navbar a:hover {
-    background-color: #d62c32;
-    color: white;
-}
-
 .banner {
     background-image: url(images/gameguide-banner.png);
     height: 50%;
@@ -108,6 +57,56 @@ body, html {
     padding: 14px;
     font-size: 2rem;
     text-align: center;
+    color: white;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	color: white;
+	text-decoration: none;
+}
+
+.header {
+	background-color: #3799E1;
+	width: 100%;
+	top: 0;
+}
+
+.header-content {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 30px;
+	min-height: 60px;
+}
+
+body, html {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    overflow: hidden;
+    background-color: #3799E1;
+    justify-content: center;
+}
+
+.navbar a {
+    display: flex;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 1.5rem;
+  }
+
+.navbar a:hover {
+    background-color: #d62c32;
     color: white;
 }
 
