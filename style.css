@@ -200,8 +200,14 @@ body, html {
 }
 
 .gg-info {
-    margin-left: 22.5%;
-    margin-right: 22.5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+}
+
+.gg-info p {
+    width: 800px;
 }
 
 .get-hot-games {
