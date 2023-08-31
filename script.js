@@ -21,29 +21,29 @@ const getHotGames = async () => {
 
 const hotgames = getHotGames();
 
-getHotGames().then(r => {
-    let i = 0;
-    let limit = 10;
-    r.forEach(hotgame => {
-        if (i < limit) {
-            let name = document.getElementById(`name${i}`);
-            name.innerHTML = hotgame.name;
-            i++;
-        }    
-    })
-    } )
+// getHotGames().then(r => {
+//     let i = 0;
+//     let limit = 10;
+//     r.forEach(hotgame => {
+//         if (i < limit) {
+//             let name = document.getElementById(`name${i}`);
+//             name.innerHTML = hotgame.name;
+//             i++;
+//         }    
+//     })
+//     } )
 
-getHotGames().then(r => {
-    let i = 0;
-    let limit = 10;
-    r.forEach(hotgame => {
-        if (i < limit) {
-            let year = document.getElementById(`year${i}`);
-            year.innerHTML = hotgame.yearPublished;
-            i++;
-        }    
-    })
-    } )
+// getHotGames().then(r => {
+//     let i = 0;
+//     let limit = 10;
+//     r.forEach(hotgame => {
+//         if (i < limit) {
+//             let year = document.getElementById(`year${i}`);
+//             year.innerHTML = hotgame.yearPublished;
+//             i++;
+//         }    
+//     })
+//     } )
 
 
 function getData() {
@@ -60,6 +60,7 @@ function getData() {
             return `
             <div class="game">
                 <h4>${game.name}</h4>
+                <img src="${game.thumbnail}"></img>
                 <p>${game.yearPublished}</p>
             </div>
             `;
