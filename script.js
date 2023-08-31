@@ -21,15 +21,13 @@ const getHotGames = async () => {
 
 const hotgames = getHotGames();
 
-let output = document.getElementById('output')
-
 getHotGames().then(r => {
     let i = 0;
     let limit = 10;
     r.forEach(hotgame => {
         if (i < limit) {
-            let output = document.getElementById(`output${i}`);
-            output.innerHTML = hotgame.name;
+            let name = document.getElementById(`name${i}`);
+            name.innerHTML = hotgame.name;
             i++;
         }    
     })
@@ -46,3 +44,32 @@ getHotGames().then(r => {
         }    
     })
     } )
+
+
+function getData() {
+    fetch('https://bgg-json.azurewebsites.net/hot')
+    .then(res => {
+        if (!res.ok) {
+            throw Error("ERROR");
+        }
+        return res.json();
+    })
+    .then(data => {
+        console.log(data);
+        const html = data.map(game => {
+            return `
+            <div class="game">
+                <h4>${game.name}</h4>
+                <p>${game.yearPublished}</p>
+            </div>
+            `;
+        }).join('');
+        console.log(html);
+        document
+            .querySelector('#testfetch')
+            .insertAdjacentHTML("afterbegin", html);
+    })
+    .catch(error => {
+        console.log(error);
+    });
+}
