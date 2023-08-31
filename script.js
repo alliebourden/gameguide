@@ -1,3 +1,4 @@
+// nav bar script
 const navEl = document.querySelector('.nav');
 const hamburgerEl = document.querySelector('.hamburger');
 
@@ -17,6 +18,8 @@ const getHotGames = async () => {
         console.log(err)
     }
 }
+
+const hotgames = getHotGames();
 
 let output = document.getElementById('output')
 
