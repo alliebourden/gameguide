@@ -9,17 +9,15 @@ hamburgerEl.addEventListener('click', () => {
 
 const url = 'https://bgg-json.azurewebsites.net';
 
-const getHotGames = async () => {
-    try {
-        const res = await fetch(`${url}/hot`);
-        const hotgames = await res.json();
-        return hotgames;
-    } catch (err) {
-        console.log(err)
-    }
-}
-
-const hotgames = getHotGames();
+// const getHotGames = async () => {
+//     try {
+//         const res = await fetch(`${url}/hot`);
+//         const hotgames = await res.json();
+//         return hotgames;
+//     } catch (err) {
+//         console.log(err)
+//     }
+// }
 
 // getHotGames().then(r => {
 //     let i = 0;
@@ -46,7 +44,7 @@ const hotgames = getHotGames();
 //     } )
 
 
-function getData() {
+function getHotGames() {
     fetch('https://bgg-json.azurewebsites.net/hot')
     .then(res => {
         if (!res.ok) {
