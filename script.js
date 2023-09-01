@@ -44,32 +44,53 @@ const url = 'https://bgg-json.azurewebsites.net';
 //     } )
 
 
-function getHotGames() {
-    fetch('https://bgg-json.azurewebsites.net/hot')
-    .then(res => {
-        if (!res.ok) {
-            throw Error("ERROR");
-        }
-        return res.json();
-    })
-    .then(data => {
-        console.log(data);
-        const html = data.map(game => {
-            return `
-            <div class="game">
-                <h4>${game.name}</h4>
-                <img src="${game.thumbnail}"></img>
-                <p>${game.yearPublished}</p>
-            </div>
-            `;
+async function getHotGames() {
+    try {
+    const res = await fetch('https://bgg-json.azurewebsites.net/hot');
+    data = await res.json();
+    const html = data.map(game => {
+        return `
+        <div class="game">
+            <h4>${game.name}</h4>
+            <img src="${game.thumbnail}"></img>
+            <p>${game.yearPublished}</p>
+        </div>
+        `;
         }).join('');
         console.log(html);
         document
             .querySelector('#hotgame')
             .insertAdjacentHTML("afterbegin", html);
-    })
-    .catch(error => {
-        console.log(error);
-    });
+    } catch (err) {
+        console.log(err)
+        }
 }
 
+// function getHotGames() {
+//     fetch('https://bgg-json.azurewebsites.net/hot')
+//     .then(res => {
+//         if (!res.ok) {
+//             throw Error("ERROR");
+//         }
+//         return res.json();
+//     })
+//     .then(data => {
+//         console.log(data);
+//         const html = data.map(game => {
+//             return `
+//             <div class="game">
+//                 <h4>${game.name}</h4>
+//                 <img src="${game.thumbnail}"></img>
+//                 <p>${game.yearPublished}</p>
+//             </div>
+//             `;
+//         }).join('');
+//         console.log(html);
+//         document
+//             .querySelector('#hotgame')
+//             .insertAdjacentHTML("afterbegin", html);
+//     })
+//     .catch(error => {
+//         console.log(error);
+//     });
+// }
