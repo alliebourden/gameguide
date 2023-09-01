@@ -50,9 +50,9 @@ async function getHotGames() {
     data = await res.json();
     const html = data.map(game => {
         return `
-        <div class="game">
-            <h4>${game.name}</h4>
+        <div class="hotgame">
             <img src="${game.thumbnail}"></img>
+            <h3>${game.name}</h3>
             <p>${game.yearPublished}</p>
         </div>
         `;
@@ -65,6 +65,8 @@ async function getHotGames() {
         console.log(err)
         }
 }
+
+
 
 // function getHotGames() {
 //     fetch('https://bgg-json.azurewebsites.net/hot')

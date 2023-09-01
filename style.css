@@ -202,34 +202,19 @@ body, html {
 .gg-info {
     margin-left: 27.5%;
     margin-right: 27.5%;
-    display: block;
     text-align: center;
 }
-
-.get-hot-games {
-    display: flex;
-    justify-content: center;
+.gg-container {
+    width: 800px;
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    align-items: center;
 }
-
-/* .gg-container {
-	display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    max-width: 800px;
-    background-color: rgba(214, 152, 60, 0.90);
-    border-radius: 5px;
-    padding: 15px;
-} */
 
 #hotgame {
     display: flex;
-    background-color: white;
-    border-radius: 3px;
+    flex-wrap: wrap;
     text-align: center;
-    width: 350px;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 
