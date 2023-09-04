@@ -204,17 +204,19 @@ body, html {
     margin-right: 27.5%;
     text-align: center;
 }
-.gg-container {
+
+.hotgame-contain {
     width: 800px;
     margin-left: 27.5%;
     margin-right: 27.5%;
-    align-items: center;
 }
 
-#hotgame {
+.hot-flex-item {
     display: flex;
-    flex-wrap: wrap;
-    text-align: center;
+    width: 180px;
+    height: 200px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 
