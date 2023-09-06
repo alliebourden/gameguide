@@ -214,9 +214,12 @@ body, html {
 .hot-flex-item {
     display: flex;
     width: 180px;
-    height: 200px;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+#hotgame {
+    justify-content: center;
 }
 
 
