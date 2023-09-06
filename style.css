@@ -206,12 +206,15 @@ body, html {
 }
 
 .hotgame-contain {
-    width: 800px;
+    display: flex;
+    width: 1020px;
+    justify-content: center;
+    align-items: center;
     margin-left: 27.5%;
     margin-right: 27.5%;
 }
 
-.hot-flex-item {
+/* .hot-flex-item {
     display: flex;
     width: 180px;
     margin-left: 10px;
@@ -220,7 +223,7 @@ body, html {
 
 #hotgame {
     justify-content: center;
-}
+} */
 
 
 /* #dropdown {
