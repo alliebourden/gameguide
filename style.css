@@ -224,6 +224,17 @@ body, html {
     overflow: hidden;
 }
 
+.card .imgBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    z-index: 1;
+}
+
+
 /* .hot-flex-item {
     display: flex;
     width: 180px;
