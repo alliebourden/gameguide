@@ -264,14 +264,14 @@ body, html {
     z-index: 1;
 }
 
-.card .imgBox {
+.card .imgBox img {
     max-width: 100%;
     transition: 0.3s;
 }
 
-.card:hover .imgBox {
+.card:hover .imgBox img {
     max-width: 50%;
-    max-height: 200px;
+    max-height: 125px;
 }
 
 .card .contentBox {
@@ -284,7 +284,7 @@ body, html {
     z-index: 2;
 }
 
-.card .contentBox h3 {
+.card .contentBox h2 {
     text-align: center;
     color: white;
     font-weight: 500;
@@ -319,8 +319,8 @@ body, html {
 }
 
 .gamephoto {
-    height: auto;
-    width: auto;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 /* .hot-flex-item {
