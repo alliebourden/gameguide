@@ -202,35 +202,137 @@ body, html {
 .gg-info {
     margin-left: 27.5%;
     margin-right: 27.5%;
-    display: block;
     text-align: center;
 }
 
-.get-hot-games {
+.hotgames {
     display: flex;
     justify-content: center;
 }
 
-/* .gg-container {
-	display: flex;
-    justify-content: space-around;
+.hotgame-contain {
+    display: flex;
     flex-wrap: wrap;
-    max-width: 800px;
-    background-color: rgba(214, 152, 60, 0.90);
-    border-radius: 5px;
-    padding: 15px;
-} */
+    width: 1020px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.card {
+    position: relative;
+    width: 320px;
+    height: 425px;
+    margin: 10px;
+    background: #3799E1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    width: 100%;
+    height: 100%;
+    background-color: #d6983c;
+    transform: skewY(345deg);
+    transition: 0.3s;
+}
+
+.card:hover::before {
+    top: -70%;
+    transform: skewY(390deg);
+}
+
+.card::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-weight: 600;
+    font-size: 6em;
+    color: rbga(0, 0, 0, 0.1)
+}
+
+.card .imgBox {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    z-index: 1;
+}
+
+.card .imgBox img {
+    max-width: 100%;
+    transition: 0.3s;
+}
+
+.card:hover .imgBox img {
+    max-width: 50%;
+    max-height: 125px;
+}
+
+.card .contentBox {
+    position: relative;
+    padding: 10px;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.card .contentBox h2 {
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.card .contentBox .year {
+    color: white;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card .contentBox .learn {
+    position: relative;
+    top: 100px;
+    opacity: 0;
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #000000;
+    text-decoration: none;
+    background: #ffce00;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.card:hover .contentBox .learn {
+    top: 0;
+    opacity: 1;
+}
+
+.gamephoto {
+    max-width: 150px;
+    max-height: 150px;
+}
+
+/* .hot-flex-item {
+    display: flex;
+    width: 180px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
 #hotgame {
-    display: flex;
-    background-color: white;
-    border-radius: 3px;
-    text-align: center;
-    width: 350px;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
+} */
 
 
 /* #dropdown {
