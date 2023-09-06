@@ -234,9 +234,19 @@ body, html {
     z-index: 1;
 }
 
+.card .imgBox {
+    max-width: 100%;
+    transition: 0.3s;
+}
+
+.card:hover .imgBox {
+    max-width: 50%;
+    max-height: 200px;
+}
+
 .card .contentBox {
     position: relative;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -245,7 +255,6 @@ body, html {
 }
 
 .card .contentBox h3 {
-    font-size: 24px;
     text-align: center;
     color: white;
     font-weight: 500;
@@ -254,7 +263,6 @@ body, html {
 }
 
 .card .contentBox .year {
-    font-size: 24px;
     color: white;
     font-weight: 700;
     letter-spacing: 1px;
@@ -273,6 +281,16 @@ body, html {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: 0.3s;
+}
+
+.card:hover .contentBox .learn {
+    top: 0;
+    opacity: 1;
+}
+
+.gamephoto {
+    height: auto;
+    width: auto;
 }
 
 /* .hot-flex-item {
