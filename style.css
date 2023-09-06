@@ -205,13 +205,18 @@ body, html {
     text-align: center;
 }
 
+.hotgames {
+    display: flex;
+    justify-content: center;
+}
+
 .hotgame-contain {
     display: flex;
+    flex-wrap: wrap;
     width: 1020px;
     justify-content: center;
     align-items: center;
-    margin-left: 27.5%;
-    margin-right: 27.5%;
+    margin: 15px;
 }
 
 .card {
