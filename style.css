@@ -214,6 +214,16 @@ body, html {
     margin-right: 27.5%;
 }
 
+.card {
+    position: relative;
+    width: 320px;
+    height: 425px;
+    margin: 10px;
+    background: #d6983c;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 /* .hot-flex-item {
     display: flex;
     width: 180px;
