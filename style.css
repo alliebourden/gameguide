@@ -260,6 +260,21 @@ body, html {
     letter-spacing: 1px;
 }
 
+.card .contentBox .learn {
+    position: relative;
+    top: 100px;
+    opacity: 0;
+    padding: 10px 30px;
+    margin-top: 15px;
+    color: #000000;
+    text-decoration: none;
+    background: #ffce00;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
 /* .hot-flex-item {
     display: flex;
     width: 180px;
