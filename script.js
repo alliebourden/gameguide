@@ -15,7 +15,7 @@ async function getHotGames() {
         for (i = 0; i < game.length; i++) {
         temp = document.createElement('div');
         temp.className = 'results';
-        temp.innerHTML = `<div class="card"><div class="imgBox"><img src="${game[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${game[i]["name"]}</h2><h3 class="year">${game[i]["yearPublished"]}</h3><a href="#" class="learn">Learn More</a></div>`;
+        temp.innerHTML = `<div class="card"><div class="imgBox"><img src="${game[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${game[i]["name"]}</h2><h3 class="year">${game[i]["yearPublished"]}</h3><a href="${url}/thing/${game[i]["gameId"]}" class="learn">Learn More</a></div>`;
         document.getElementsByClassName('hotgame-contain')[0].appendChild(temp);
 }}
 
