@@ -17,6 +17,17 @@ async function getHotGames() {
         displayGames(game);
 }
 
+function displayGames(data) {
+        const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
+        gameContainer.innerHTML = '';
+        for (let i = 0; i < data.length; i++) {
+                const gameData = document.createElement('div');
+                gameData.className = 'results';
+                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${data[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${data[i]["name"]}</h2><h3 class="year">${data[i]["yearPublished"]}</h3><a href="${url}/thing/${data[i]["gameId"]}" class="learn">Learn More</a></div>`;
+                gameContainer.appendChild(gameData);
+              }
+}
+
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
 //         game = await res.json();
