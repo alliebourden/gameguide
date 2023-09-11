@@ -28,6 +28,11 @@ function displayGames(data) {
               }
 }
 
+document.getElementById('sortByYear').addEventListener('click', () => {
+        game.sort((a, b) => a.yearPublished - b.yearPublished);
+        displayGames(game);
+})
+
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
 //         game = await res.json();
