@@ -33,6 +33,11 @@ document.getElementById('sortByYear').addEventListener('click', () => {
         displayGames(game);
 })
 
+document.getElementById('sortByName').addEventListener('click', () => {
+        game.sort((a, b) => a.name.localeCompare(b.name));
+        displayGames(game);
+})
+
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
 //         game = await res.json();
