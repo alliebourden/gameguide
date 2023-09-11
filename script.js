@@ -10,6 +10,8 @@ hamburgerEl.addEventListener('click', () => {
 const url = 'https://bgg-json.azurewebsites.net';
 
 let game = [];
+let sortByYearAscending = true;
+let sortByNameAscending = true; 
 
 async function getHotGames() {
         const res = await fetch(`${url}/hot`);
