@@ -7,8 +7,10 @@ hamburgerEl.addEventListener('click', () => {
 	hamburgerEl.classList.toggle('hamburger--open');
 })
 
+// API url
 const url = 'https://bgg-json.azurewebsites.net';
 
+// globals
 let games = [];
 let sortByYearAscending = true;
 let sortByNameAscending = true;
@@ -17,12 +19,14 @@ let currentPage = 1;
 
 getHotGames();
 
+// Main fetch function
 async function getHotGames() {
         const res = await fetch(`${url}/hot`);
         games = await res.json();
         displayGames(currentPage);
 }
 
+// display API data 
 function displayGames(page) {
         const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
         gameContainer.innerHTML = '';
@@ -36,6 +40,7 @@ function displayGames(page) {
               }
 }
 
+// Sort displayed data by year
 document.getElementById('sortByYear').addEventListener('click', () => {
         sortByYearAscending = !sortByYearAscending;
         games.sort((a, b) => {
@@ -48,6 +53,7 @@ document.getElementById('sortByYear').addEventListener('click', () => {
         displayGames(currentPage);
 })
 
+// Sort displayed data by name
 document.getElementById('sortByName').addEventListener('click', () => {
         sortByNameAscending = !sortByNameAscending;
         games.sort((a, b) => {
@@ -60,6 +66,7 @@ document.getElementById('sortByName').addEventListener('click', () => {
         displayGames(currentPage);
 })
 
+// Buttons to navigate the displayed results
 document.getElementById('prevPage').addEventListener('click', () => {
         if (currentPage > 1) {
                 currentPage--;
@@ -74,6 +81,10 @@ document.getElementById('nextPage').addEventListener('click', () => {
                 displayGames(currentPage);
         }
 })
+
+
+
+
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
 //         game = await res.json();
