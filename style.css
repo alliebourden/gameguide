@@ -407,20 +407,32 @@ footer {
     background-color: #0056b3;
 }
 
-/* .filter-btns {
+.filter-btns {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
+    text-align: center;
+}
+
+#sortByYear {
+    margin-right: 10px;
+}
+
+#sortByName {
+    margin-left: 10px;
 }
 
 .display-btns {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
+    text-align: center;
 }
 
 #prevPage {
+    margin-right: 10px;
+}
 
-} */
+#nextPage {
+    margin-left: 10px;
+}
