@@ -213,7 +213,7 @@ body, html {
 .hotgame-contain {
     display: flex;
     flex-wrap: wrap;
-    width: 1020px;
+    width: 1360px;
     justify-content: center;
     align-items: center;
     margin: 15px;
@@ -323,22 +323,6 @@ body, html {
     max-height: 150px;
 }
 
-/* .hot-flex-item {
-    display: flex;
-    width: 180px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#hotgame {
-    justify-content: center;
-} */
-
-
-/* #dropdown {
-    padding-bottom: 14px;
-} */
-
 main button {
     display: flex;
     justify-content: space-around;
@@ -421,4 +405,34 @@ footer {
 
 .mailbutton:hover {
     background-color: #0056b3;
+}
+
+.filter-btns {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+}
+
+#sortByYear {
+    margin-right: 10px;
+}
+
+#sortByName {
+    margin-left: 10px;
+}
+
+.display-btns {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+}
+
+#prevPage {
+    margin-right: 10px;
+}
+
+#nextPage {
+    margin-left: 10px;
 }
