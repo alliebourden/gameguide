@@ -31,7 +31,14 @@ function displayGames(data) {
 }
 
 document.getElementById('sortByYear').addEventListener('click', () => {
-        game.sort((a, b) => a.yearPublished - b.yearPublished);
+        sortByYearAscending = !sortByYearAscending;
+        game.sort((a, b) => {
+                if (sortByYearAscending) {
+                        return a.yearPublished - b.yearPublished;
+                } else {
+                        return b.yearPublished - a.yearPublished;
+                }
+        });
         displayGames(game);
 })
 
