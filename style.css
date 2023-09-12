@@ -323,22 +323,6 @@ body, html {
     max-height: 150px;
 }
 
-/* .hot-flex-item {
-    display: flex;
-    width: 180px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#hotgame {
-    justify-content: center;
-} */
-
-
-/* #dropdown {
-    padding-bottom: 14px;
-} */
-
 main button {
     display: flex;
     justify-content: space-around;
@@ -423,6 +407,20 @@ footer {
     background-color: #0056b3;
 }
 
-.filter-btns {
+/* .filter-btns {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
 }
+
+.display-btns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+#prevPage {
+
+} */
