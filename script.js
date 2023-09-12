@@ -9,19 +9,21 @@ hamburgerEl.addEventListener('click', () => {
 
 const url = 'https://bgg-json.azurewebsites.net';
 
-let game = [];
+let games = [];
 let sortByYearAscending = true;
 let sortByNameAscending = true;
 const resultsPerPage = 9;
 let currentPage = 1;
 
+getHotGames();
+
 async function getHotGames() {
         const res = await fetch(`${url}/hot`);
-        game = await res.json();
-        displayGames(game);
+        games = await res.json();
+        displayGames(currentPage);
 }
 
-function displayGames(data) {
+function displayGames(page) {
         const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
         gameContainer.innerHTML = '';
         const startIndex = (page - 1) * resultsPerPage;
@@ -29,45 +31,44 @@ function displayGames(data) {
         for (let i = startIndex; i < endIndex && i < games.length; i++) {
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
-                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${data[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${data[i]["name"]}</h2><h3 class="year">${data[i]["yearPublished"]}</h3><a href="${url}/thing/${data[i]["gameId"]}" class="learn">Learn More</a></div>`;
+                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="${url}/thing/${games[i]["gameId"]}" class="learn">Learn More</a></div>`;
                 gameContainer.appendChild(gameData);
               }
 }
 
 document.getElementById('sortByYear').addEventListener('click', () => {
         sortByYearAscending = !sortByYearAscending;
-        game.sort((a, b) => {
+        games.sort((a, b) => {
                 if (sortByYearAscending) {
                         return a.yearPublished - b.yearPublished;
                 } else {
                         return b.yearPublished - a.yearPublished;
                 }
         });
-        displayGames(game);
+        displayGames(games);
 })
 
 document.getElementById('sortByName').addEventListener('click', () => {
         sortByNameAscending = !sortByNameAscending;
-        game.sort((a, b) => {
+        games.sort((a, b) => {
                 if (sortByNameAscending) {
                         return a.name.localeCompare(b.name);
                 } else {
                         return b.name.localeCompare(a.name);
                 }
         });
-        displayGames(game);
+        displayGames(games);
 })
 
-document.getElementById('nextPage').addEventListener('click', () => {
+document.getElementById('prevPage').addEventListener('click', () => {
         if (currentPage > 1) {
                 currentPage--;
                 displayGames(currentPage)
         }
 })
 
-
 document.getElementById('nextPage').addEventListener('click', () => {
-        const totalPages = Math.ceil(games.lenth / resultsPerPage);
+        const totalPages = Math.ceil(games.length / resultsPerPage);
         if (currentPage < totalPages) {
                 currentPage++;
                 displayGames(currentPage);
