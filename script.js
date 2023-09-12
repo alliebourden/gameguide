@@ -58,6 +58,14 @@ document.getElementById('sortByName').addEventListener('click', () => {
         displayGames(game);
 })
 
+document.getElementById('prevPage').addEventListener('click', () => {
+        const totalPages = Math.ceil(games.lenth / resultsPerPage);
+        if (currentPage < totalPages) {
+                currentPage++;
+                displayGames(currentPage);
+        }
+})
+
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
 //         game = await res.json();
