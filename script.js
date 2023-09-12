@@ -43,7 +43,14 @@ document.getElementById('sortByYear').addEventListener('click', () => {
 })
 
 document.getElementById('sortByName').addEventListener('click', () => {
-        game.sort((a, b) => a.name.localeCompare(b.name));
+        sortByNameAscending = !sortByNameAscending;
+        game.sort((a, b) => {
+                if (sortByNameAscending) {
+                        return a.name.localeCompare(b.name);
+                } else {
+                        return b.name.localeCompare(a.name);
+                }
+        });
         displayGames(game);
 })
 
