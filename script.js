@@ -9,15 +9,62 @@ hamburgerEl.addEventListener('click', () => {
 
 const url = 'https://bgg-json.azurewebsites.net';
 
+let game = [];
+let sortByYearAscending = true;
+let sortByNameAscending = true; 
+
 async function getHotGames() {
         const res = await fetch(`${url}/hot`);
         game = await res.json();
-        for (i = 0; i < game.length; i++) {
-        temp = document.createElement('div');
-        temp.className = 'results';
-        temp.innerHTML = `<div class="card"><div class="imgBox"><img src="${game[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${game[i]["name"]}</h2><h3 class="year">${game[i]["yearPublished"]}</h3><a href="#" class="learn">Learn More</a></div>`;
-        document.getElementsByClassName('hotgame-contain')[0].appendChild(temp);
-}}
+        displayGames(game);
+}
+
+function displayGames(data) {
+        const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
+        gameContainer.innerHTML = '';
+        for (let i = 0; i < data.length; i++) {
+                const gameData = document.createElement('div');
+                gameData.className = 'results';
+                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${data[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${data[i]["name"]}</h2><h3 class="year">${data[i]["yearPublished"]}</h3><a href="${url}/thing/${data[i]["gameId"]}" class="learn">Learn More</a></div>`;
+                gameContainer.appendChild(gameData);
+              }
+}
+
+document.getElementById('sortByYear').addEventListener('click', () => {
+        sortByYearAscending = !sortByYearAscending;
+        game.sort((a, b) => {
+                if (sortByYearAscending) {
+                        return a.yearPublished - b.yearPublished;
+                } else {
+                        return b.yearPublished - a.yearPublished;
+                }
+        });
+        displayGames(game);
+})
+
+document.getElementById('sortByName').addEventListener('click', () => {
+        sortByNameAscending = !sortByNameAscending;
+        game.sort((a, b) => {
+                if (sortByNameAscending) {
+                        return a.name.localeCompare(b.name);
+                } else {
+                        return b.name.localeCompare(a.name);
+                }
+        });
+        displayGames(game);
+})
+
+// async function getHotGames() {
+//         const res = await fetch(`${url}/hot`);
+//         game = await res.json();
+//         for (i = 0; i < game.length; i++) {
+//         data = document.createElement('div');
+//         data.className = 'results';
+//         data.innerHTML = `<div class="card"><div class="imgBox"><img src="${game[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${game[i]["name"]}</h2><h3 class="year">${game[i]["yearPublished"]}</h3><a href="${url}/thing/${game[i]["gameId"]}" class="learn">Learn More</a></div>`;
+//         document.getElementsByClassName('hotgame-contain')[0].appendChild(data);
+// }}
+
+// getHotGames();
 
 // let array = []
 
