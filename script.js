@@ -11,7 +11,9 @@ const url = 'https://bgg-json.azurewebsites.net';
 
 let game = [];
 let sortByYearAscending = true;
-let sortByNameAscending = true; 
+let sortByNameAscending = true;
+const resultsPerPage = 9;
+let currentPage = 1;
 
 async function getHotGames() {
         const res = await fetch(`${url}/hot`);
