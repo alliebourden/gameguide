@@ -84,7 +84,7 @@ document.getElementById('nextPage').addEventListener('click', () => {
 
 
 
-
+// OLD CODE BELOW
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
 //         game = await res.json();
