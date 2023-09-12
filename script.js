@@ -26,7 +26,7 @@ function displayGames(data) {
         gameContainer.innerHTML = '';
         const startIndex = (page - 1) * resultsPerPage;
         const endIndex = startIndex + resultsPerPage;
-        for (let i = 0; i < data.length; i++) {
+        for (let i = startIndex; i < endIndex && i < games.length; i++) {
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
                 gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${data[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${data[i]["name"]}</h2><h3 class="year">${data[i]["yearPublished"]}</h3><a href="${url}/thing/${data[i]["gameId"]}" class="learn">Learn More</a></div>`;
