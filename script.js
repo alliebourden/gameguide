@@ -24,6 +24,8 @@ async function getHotGames() {
 function displayGames(data) {
         const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
         gameContainer.innerHTML = '';
+        const startIndex = (page - 1) * resultsPerPage;
+        const endIndex = startIndex + resultsPerPage;
         for (let i = 0; i < data.length; i++) {
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
