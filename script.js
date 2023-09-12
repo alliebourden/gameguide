@@ -12,7 +12,7 @@ const url = 'https://bgg-json.azurewebsites.net';
 let games = [];
 let sortByYearAscending = true;
 let sortByNameAscending = true;
-const resultsPerPage = 9;
+const resultsPerPage = 8;
 let currentPage = 1;
 
 getHotGames();
@@ -45,7 +45,7 @@ document.getElementById('sortByYear').addEventListener('click', () => {
                         return b.yearPublished - a.yearPublished;
                 }
         });
-        displayGames(games);
+        displayGames(currentPage);
 })
 
 document.getElementById('sortByName').addEventListener('click', () => {
@@ -57,7 +57,7 @@ document.getElementById('sortByName').addEventListener('click', () => {
                         return b.name.localeCompare(a.name);
                 }
         });
-        displayGames(games);
+        displayGames(currentPage);
 })
 
 document.getElementById('prevPage').addEventListener('click', () => {

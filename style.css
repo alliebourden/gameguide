@@ -422,3 +422,7 @@ footer {
 .mailbutton:hover {
     background-color: #0056b3;
 }
+
+.filter-btns {
+    display: flex;
+}
