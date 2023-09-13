@@ -17,6 +17,7 @@ let sortByNameAscending = true;
 const resultsPerPage = 8;
 let currentPage = 1;
 
+
 getHotGames();
 
 // Main fetch function
@@ -33,9 +34,10 @@ function displayGames(page) {
         const startIndex = (page - 1) * resultsPerPage;
         const endIndex = startIndex + resultsPerPage;
         for (let i = startIndex; i < endIndex && i < games.length; i++) {
+                const gameId = games[i]["gameId"];
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
-                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="${url}/thing/${games[i]["gameId"]}" class="learn">Learn More</a></div>`;
+                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a></div>`;
                 gameContainer.appendChild(gameData);
               }
 }
@@ -82,8 +84,17 @@ document.getElementById('nextPage').addEventListener('click', () => {
         }
 })
 
+// Learn More event listener
+document.addEventListener('click', async (event) => {
+        if (event.target.classList.contains('learn')) {
+          event.preventDefault();
+          const gameId = event.target.getAttribute('href').split('=')[1];
+          const newPageUrl = `game-details.html?gameId=${gameId}`;
+          window.location.href = `game-details.html?gameId=${gameId}`;
+        }
+      })
 
-
+        
 // OLD CODE BELOW
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
