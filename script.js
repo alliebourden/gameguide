@@ -100,6 +100,7 @@ function getUrlParameter(name) {
 }
 
 async function fetchGameDetails() {
+        console.log('hello')
         const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
         gameDetailsContainer.innerHTML = '';
         const gameId = getUrlParameter('gameId');
@@ -129,7 +130,12 @@ async function fetchGameDetails() {
         }
     }
 
-        
+// document.addEventListener('DOMContentLoaded', async function () {
+//         console.log('Page loaded');
+//         await fetchGameDetails();
+// });
+
+
 // OLD CODE BELOW
 // async function getHotGames() {
 //         const res = await fetch(`${url}/hot`);
