@@ -99,6 +99,36 @@ function getUrlParameter(name) {
         return urlParams.get(name);
 }
 
+async function fetchGameDetails() {
+        const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
+        gameDetailsContainer.innerHTML = '';
+        const gameId = getUrlParameter('gameId');
+        if (gameId) {
+            const apiUrl = `${url}/thing/${gameId}`;
+            try {
+                const res = await fetch(apiUrl);
+                
+                if (res.ok) {
+                    const gameDetails = await res.json();
+                    const gameDetailsDiv = document.createElement('div');
+                    gameDetailsDiv.className = 'results';
+                    gameDetailsDiv.innerHTML = `
+                        <h1>${gameDetails.name}</h1>
+                        <p id="gameDescription">${gameDetails.description}</p>
+                        <img id="gameImage" src="${gameDetails.image}" alt="Game Image">
+                    `;
+                    gameDetailsContainer.appendChild(gameDetailsDiv);
+                } else {
+                    console.error('Failed to fetch game details');
+                }
+            } catch (error) {
+                console.error('An error occurred while fetching game details:', error);
+            }
+        } else {
+            console.error('No gameId parameter found in the URL');
+        }
+    }
+
         
 // OLD CODE BELOW
 // async function getHotGames() {
