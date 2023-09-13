@@ -94,6 +94,11 @@ document.addEventListener('click', async (event) => {
         }
       })
 
+function getUrlParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+}
+
         
 // OLD CODE BELOW
 // async function getHotGames() {
