@@ -94,11 +94,13 @@ document.addEventListener('click', async (event) => {
         }
       })
 
+// Get URL parameter to use in fetchGameDetails 
 function getUrlParameter(name) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
 }
 
+// Function to fetch and display the HTML on the game details page
 async function fetchGameDetails() {
         console.log('hello')
         const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
@@ -130,6 +132,7 @@ async function fetchGameDetails() {
         }
     }
 
+// This did not work so added onLoad to html body instead
 // document.addEventListener('DOMContentLoaded', async function () {
 //         console.log('Page loaded');
 //         await fetchGameDetails();
