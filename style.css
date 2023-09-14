@@ -436,3 +436,17 @@ footer {
 #nextPage {
     margin-left: 10px;
 }
+
+.game-details {
+    background: #d6983c;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
