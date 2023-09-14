@@ -450,3 +450,9 @@ footer {
     align-items: center;
     margin: 1opx;
 }
+
+.game-details h1 {
+    background: white;
+    display: flex;
+    border-radius: 8px;
+}
