@@ -116,9 +116,9 @@ async function fetchGameDetails() {
                     const gameDetailsDiv = document.createElement('div');
                     gameDetailsDiv.className = 'results';
                     gameDetailsDiv.innerHTML = `
-                        <h1>${gameDetails.name}</h1>
-                        <p id="gameDescription">${gameDetails.description}</p>
-                        <img id="gameImage" src="${gameDetails.image}" alt="Game Image">
+                        <h1 class="gd-name">${gameDetails.name}</h1>
+                        <p id="game-escription">${gameDetails.description}</p>
+                        <img id="game-image" src="${gameDetails.image}" alt="Game Image">
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
                 } else {
