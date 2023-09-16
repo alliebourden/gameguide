@@ -363,7 +363,7 @@ main button {
     border-radius: 10px;
 }
 
-.game-details h1 {
+.game-details h2 {
     display: flex;
 }
 
@@ -379,6 +379,10 @@ main button {
     flex-wrap: wrap;
     float: left;
     margin: 10px;
+}
+
+#gameDescription {
+    font-size: 14px;
 }
 
 .contact-text {
