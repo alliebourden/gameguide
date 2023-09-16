@@ -373,6 +373,10 @@ main button {
     padding: 8px;
     flex-wrap: wrap;
 }
+#gameName {
+    border-bottom: #3799E1;
+    border-bottom-style: solid;
+}
 
 #gameImage {
     display: flex;
