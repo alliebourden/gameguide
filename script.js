@@ -117,6 +117,16 @@ async function fetchGameDetails() {
                         <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <div class="game-info">
                         <h2>${gameDetails.name}</h2>
+                        <div class="top-info">
+                        <div class="players">
+                        <img src="images/people.png" id="people">
+                        <h5 id="players">Players: ${gameDetails.minPlayers} - ${gameDetails.maxPlayers}</h5>
+                        </div>
+                        <div class="playtime">
+                        <img src="images/clock.png" id="clock">
+                        <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
+                        </div>
+                        </div>
                         <p id="gameDescription">${gameDetails.description}</p>
                         </div>
                     `;

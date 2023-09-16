@@ -381,6 +381,48 @@ main button {
     margin: 10px;
 }
 
+.top-info {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.playtime {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#clock {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+#playtime {
+    display: flex;
+}
+
+.players {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#people {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+#players {
+    display: flex;
+}
+
+
 #gameDescription {
     font-size: 14px;
 }
