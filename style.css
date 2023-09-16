@@ -31,6 +31,15 @@
     position: relative;
 }
 
+.banner-gd {
+    background-image: url(images/gamedetails-banner.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .banner-contact {
     background-image: url(images/gameguide-banner4.png);
     height: 50%;
