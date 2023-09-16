@@ -437,6 +437,12 @@ footer {
     margin-left: 10px;
 }
 
+.game-details-contain {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .game-details {
     background: #d6983c;
     display: flex;
@@ -445,10 +451,6 @@ footer {
     width: 90%;
     max-width: 600px;
     border-radius: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 1opx;
 }
 
 .game-details h1 {
