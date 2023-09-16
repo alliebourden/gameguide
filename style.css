@@ -352,14 +352,14 @@ main button {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 2vh;
 }
 .game-details {
     background: #d6983c;
     display: flex;
-    flex-direction: column;
-    padding: 2vh 4vw;
+    padding: 2vh 2vw;
     width: 90%;
-    max-width: 600px;
+    max-width: 800px;
     border-radius: 10px;
 }
 
@@ -370,6 +370,15 @@ main button {
 .game-info {
     background-color: white;
     border-radius: 8px;
+    padding: 8px;
+    flex-wrap: wrap;
+}
+
+#gameImage {
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+    margin: 10px;
 }
 
 .contact-text {
