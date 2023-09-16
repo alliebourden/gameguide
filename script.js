@@ -116,7 +116,7 @@ async function fetchGameDetails() {
                     gameDetailsDiv.innerHTML = `
                         <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <div class="game-info">
-                        <h2>${gameDetails.name}</h2>
+                        <h2 id="gameName">${gameDetails.name}</h2>
                         <div class="top-info">
                         <div class="players">
                         <img src="images/people.png" id="people">

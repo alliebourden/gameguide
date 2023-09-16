@@ -379,6 +379,7 @@ main button {
     flex-wrap: wrap;
     float: left;
     margin: 10px;
+    border-radius: 5px;
 }
 
 .top-info {
@@ -425,6 +426,7 @@ main button {
 
 #gameDescription {
     font-size: 14px;
+    padding-top: 10px;
 }
 
 .contact-text {
