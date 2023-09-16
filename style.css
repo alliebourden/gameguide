@@ -347,6 +347,31 @@ main button {
     border-radius: 30px;
 }
 
+.game-details-contain {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.game-details {
+    background: #d6983c;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.game-details h1 {
+    display: flex;
+}
+
+.game-info {
+    background-color: white;
+    border-radius: 8px;
+}
+
 .contact-text {
     margin-left: 22.5%;
     margin-right: 22.5%;
@@ -444,26 +469,4 @@ footer {
 
 #nextPage {
     margin-left: 10px;
-}
-
-.game-details-contain {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.game-details {
-    background: #d6983c;
-    display: flex;
-    flex-direction: column;
-    padding: 2vh 4vw;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-.game-details h1 {
-    background: white;
-    display: flex;
-    border-radius: 8px;
 }
