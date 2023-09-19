@@ -100,7 +100,6 @@ function getUrlParameter(name) {
 }
 
 async function fetchGameDetails() {
-        console.log('hello')
         const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
         gameDetailsContainer.innerHTML = '';
         const gameId = getUrlParameter('gameId');
@@ -113,6 +112,11 @@ async function fetchGameDetails() {
                     const gameDetails = await res.json();
                     const gameDetailsDiv = document.createElement('div');
                     gameDetailsDiv.className = 'results';
+                    const description = gameDetails.description;
+                    const maxCharacters = 250;
+                    const shortDescription = description.length > maxCharacters
+                        ? description.slice(0, maxCharacters) + '...'
+                        : description;
                     gameDetailsDiv.innerHTML = `
                         <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <div class="game-info">
@@ -127,10 +131,20 @@ async function fetchGameDetails() {
                         <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
                         </div>
                         </div>
-                        <p id="gameDescription">${gameDetails.description}</p>
+                        <p id="gameDescription">${shortDescription}</p>
+                        ${description.length > maxCharacters
+                                ? '<button id="read-more-btn">Read More</button>'
+                                : ''}
                         </div>
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
+                    const readMoreButton = document.getElementById('read-more-btn');
+                    if (readMoreButton) {
+                        readMoreButton.addEventListener('click', () => {
+                                document.getElementById('gameDescription').textContent = description;
+                                readMoreButton.style.display = 'none';
+                        });
+                    }
                 } else {
                     console.error('Failed to fetch game details');
                 }
