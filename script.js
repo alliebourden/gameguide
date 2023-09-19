@@ -115,7 +115,7 @@ async function fetchGameDetails() {
                     const gameDetailsDiv = document.createElement('div');
                     gameDetailsDiv.className = 'results';
                     const description = gameDetails.description;
-                    const maxCharacters = 300;
+                    const maxCharacters = 600;
                     const shortDescription = description.length > maxCharacters
                         ? description.slice(0, maxCharacters) + '...'
                         : description;
