@@ -103,8 +103,10 @@ async function fetchGameDetails() {
         const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
         gameDetailsContainer.innerHTML = '';
         const gameId = getUrlParameter('gameId');
+        
         if (gameId) {
             const apiUrl = `${url}/thing/${gameId}`;
+            
             try {
                 const res = await fetch(apiUrl);
                 
@@ -113,36 +115,50 @@ async function fetchGameDetails() {
                     const gameDetailsDiv = document.createElement('div');
                     gameDetailsDiv.className = 'results';
                     const description = gameDetails.description;
-                    const maxCharacters = 250;
+                    const maxCharacters = 300;
                     const shortDescription = description.length > maxCharacters
                         ? description.slice(0, maxCharacters) + '...'
                         : description;
                     gameDetailsDiv.innerHTML = `
                         <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <div class="game-info">
-                        <h2 id="gameName">${gameDetails.name}</h2>
-                        <div class="top-info">
-                        <div class="players">
-                        <img src="images/people.png" id="people">
-                        <h5 id="players">Players: ${gameDetails.minPlayers} - ${gameDetails.maxPlayers}</h5>
-                        </div>
-                        <div class="playtime">
-                        <img src="images/clock.png" id="clock">
-                        <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
-                        </div>
-                        </div>
-                        <p id="gameDescription">${shortDescription}</p>
-                        ${description.length > maxCharacters
+                            <h2 id="gameName">${gameDetails.name}</h2>
+                            <div class="top-info">
+                                <div class="players">
+                                    <img src="images/people.png" id="people">
+                                    <h5 id="players">Players: ${gameDetails.minPlayers} - ${gameDetails.maxPlayers}</h5>
+                                </div>
+                                <div class="playtime">
+                                    <img src="images/clock.png" id="clock">
+                                    <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
+                                </div>
+                            </div>
+                            <div id="gameDescription"></div> <!-- Use a <div> for the description -->
+                            ${description.length > maxCharacters
                                 ? '<button id="read-more-btn">Read More</button>'
                                 : ''}
                         </div>
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
+    
+                    // Decode and display the description
+                    const gameDescription = document.getElementById('gameDescription');
+                    gameDescription.innerHTML = shortDescription; // Initially, show the shortened description
+                    
                     const readMoreButton = document.getElementById('read-more-btn');
+                    let isFullDescriptionVisible = false;
+                    
                     if (readMoreButton) {
                         readMoreButton.addEventListener('click', () => {
-                                document.getElementById('gameDescription').textContent = description;
-                                readMoreButton.style.display = 'none';
+                            isFullDescriptionVisible = !isFullDescriptionVisible;
+    
+                            if (isFullDescriptionVisible) {
+                                gameDescription.innerHTML = description; // Show the full description
+                                readMoreButton.textContent = 'Read Less';
+                            } else {
+                                gameDescription.innerHTML = shortDescription; // Show the shortened description
+                                readMoreButton.textContent = 'Read More';
+                            }
                         });
                     }
                 } else {
