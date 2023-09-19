@@ -68,6 +68,11 @@ document.getElementById('sortByName').addEventListener('click', () => {
         displayGames(currentPage);
 })
 
+
+document.getElementById('sortByHot').addEventListener('click', () => {
+        getHotGames();
+});
+
 // Buttons to navigate the displayed results
 document.getElementById('prevPage').addEventListener('click', () => {
         if (currentPage > 1) {

@@ -509,8 +509,13 @@ footer {
     text-align: center;
 }
 
+#sortByHot {
+    margin-right: 10px;
+}
+
 #sortByYear {
     margin-right: 10px;
+    margin-left: 10px;
 }
 
 #sortByName {
