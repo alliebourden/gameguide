@@ -104,6 +104,7 @@ function getUrlParameter(name) {
         return urlParams.get(name);
 }
 
+// Fetch game details description
 async function fetchGameDetails() {
         const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
         gameDetailsContainer.innerHTML = '';
@@ -120,7 +121,7 @@ async function fetchGameDetails() {
                     const gameDetailsDiv = document.createElement('div');
                     gameDetailsDiv.className = 'results';
                     const description = gameDetails.description;
-                    const maxCharacters = 600;
+                    const maxCharacters = 250;
                     const shortDescription = description.length > maxCharacters
                         ? description.slice(0, maxCharacters) + '...'
                         : description;
@@ -137,19 +138,34 @@ async function fetchGameDetails() {
                                     <img src="images/clock.png" id="clock">
                                     <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
                                 </div>
-                            </div>
-                            <div id="gameDescription"></div> <!-- Use a <div> for the description -->
+                                <div class="mechanics">
+                                    <img src="images/dice.png" id="dice">
+                                    <h5>Mechanics:</h5>
+                                    <select id="mechanicsDropdown"></select>
+                                </div>
+                        </div>
+                            <p id="gameDescription">${shortDescription}</p>
                             ${description.length > maxCharacters
                                 ? '<button id="read-more-btn">Read More</button>'
                                 : ''}
                         </div>
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
-    
-                    // Decode and display the description
+                    const mechanicsDropdown = document.getElementById('mechanicsDropdown');
+                    mechanicsDropdown.innerHTML = '';
+                    if (gameDetails.mechanics && gameDetails.mechanics.length > 0) {
+                        for (const mechanic of gameDetails.mechanics) {
+                            const option = document.createElement('option');
+                            option.text = mechanic;
+                            mechanicsDropdown.appendChild(option);
+                        }
+                    } else {
+                        const defaultOption = document.createElement('option');
+                        defaultOption.text = 'No mechanics available';
+                        mechanicsDropdown.appendChild(defaultOption);
+                    }
                     const gameDescription = document.getElementById('gameDescription');
-                    gameDescription.innerHTML = shortDescription; // Initially, show the shortened description
-                    
+                    gameDescription.innerHTML = shortDescription;
                     const readMoreButton = document.getElementById('read-more-btn');
                     let isFullDescriptionVisible = false;
                     
@@ -158,10 +174,10 @@ async function fetchGameDetails() {
                             isFullDescriptionVisible = !isFullDescriptionVisible;
     
                             if (isFullDescriptionVisible) {
-                                gameDescription.innerHTML = description; // Show the full description
+                                gameDescription.innerHTML = description;
                                 readMoreButton.textContent = 'Read Less';
                             } else {
-                                gameDescription.innerHTML = shortDescription; // Show the shortened description
+                                gameDescription.innerHTML = shortDescription;
                                 readMoreButton.textContent = 'Read More';
                             }
                         });
@@ -174,5 +190,4 @@ async function fetchGameDetails() {
             }
         } else {
             console.error('No gameId parameter found in the URL');
-        }
-    }
+        }}
