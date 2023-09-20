@@ -375,6 +375,7 @@ main button {
     padding: 15px;
     flex-wrap: wrap;
 }
+
 #gameName {
     border-bottom: #3799E1;
     border-bottom-style: solid;
@@ -533,31 +534,19 @@ main button {
     }
 }
 
-@media (max-width: 560px) {
-
-}
-
-@media (max-width: 490px) {
+@media (max-width: 350px) {
+    .game-details {
+        background: white;
+        display: flex;
+    }
     .game-info {
-        padding-top: 5px;
-    }
-    /* #gameName {
-        margin: 0px;
-    } */
-    #gameDescription {
-        margin-top: 20px;
-    }
-}
-
-@media (max-width: 465px) {
-    .players {
-        margin-right: 10px;
-        height: 35px;
-    }
-    .playtime {
-        margin: 0;
-        height: 35px;
-    }
+        background-color: white;
+        border-radius: 8px;
+        padding: 1em;
+        flex-wrap: wrap;
+        border-color: #d6983c;
+        border-style: solid;
+    } 
 }
 
 .contact-text {
