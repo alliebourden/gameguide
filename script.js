@@ -143,7 +143,7 @@ async function fetchGameDetails() {
                                     <h5>Mechanics:</h5>
                                     <select id="mechanicsDropdown"></select>
                                 </div>
-                        </div>
+                            </div>
                             <p id="gameDescription">${shortDescription}</p>
                             ${description.length > maxCharacters
                                 ? '<button id="read-more-btn">Read More</button>'
