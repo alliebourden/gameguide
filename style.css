@@ -383,7 +383,7 @@ main button {
     display: flex;
     flex-wrap: wrap;
     float: left;
-    margin: 10px;
+    margin-right: 10px;
     border-radius: 5px;
 }
 
@@ -469,7 +469,7 @@ main button {
 
 #gameDescription {
     font-size: 14px;
-    padding-top: 20px;
+    padding-top: 35px;
 }
 
 @media (max-width: 875px) {
@@ -493,8 +493,14 @@ main button {
 }
 }
 
-@media (max-width: 575px) {
+@media (max-width: 600px) {
+    #gameImage {
+        display: block;
+        align-items: center;
+        float: none;
+    }
     .top-info {
+        display: block;
         font-size: 14px;
     }
     .mechanics {
@@ -512,6 +518,10 @@ main button {
         margin-right: 0;
 
     }
+}
+
+@media (max-width: 560px) {
+
 }
 
 @media (max-width: 490px) {
