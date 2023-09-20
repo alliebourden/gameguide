@@ -494,15 +494,27 @@ main button {
 }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
+    .game-info {
+        display: flex;
+        flex-direction: column;
+    }
     #gameImage {
         display: block;
-        align-items: center;
-        float: none;
+        margin-left: auto;
+        margin-right: auto;
     }
     .top-info {
-        display: block;
+        display: flex;
         font-size: 14px;
+        flex-direction: column;
+    }
+    .game-details h2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        margin-top: 5px;
     }
     .mechanics {
         display: flex;
@@ -515,9 +527,9 @@ main button {
     .filter-btns {
         font-size: 12px;
     }
-    .playtime {
+    .players, .playtime, .mechanics {
         margin-right: 0;
-
+        height: 45px;
     }
 }
 
