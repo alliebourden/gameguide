@@ -442,6 +442,7 @@ main button {
     border: 0;
     outline: 0;
     font: inherit;
+    font-size: 14px;
     width: 15em;
     height: 2em;
     padding: 0 4em 0 1em;
