@@ -357,7 +357,7 @@ main button {
 .game-details {
     background: #d6983c;
     display: flex;
-    padding: 1vh 1vw;
+    padding: 10px 10px;
     width: 90%;
     max-width: 1000px;
     border-radius: 10px;
@@ -365,6 +365,8 @@ main button {
 
 .game-details h2 {
     display: flex;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .game-info {
@@ -373,6 +375,7 @@ main button {
     padding: 15px;
     flex-wrap: wrap;
 }
+
 #gameName {
     border-bottom: #3799E1;
     border-bottom-style: solid;
@@ -382,7 +385,7 @@ main button {
     display: flex;
     flex-wrap: wrap;
     float: left;
-    margin: 10px;
+    margin-right: 10px;
     border-radius: 5px;
 }
 
@@ -396,7 +399,7 @@ main button {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin-left: 20px;
+    margin-right: 20px;
 }
 
 #clock {
@@ -414,6 +417,7 @@ main button {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-right: 20px;
 }
 
 #people {
@@ -430,7 +434,6 @@ main button {
 .mechanics {
     display: flex;
     align-items: center;
-    margin-left: 20px;
 }
 
 .mechanics h5 {
@@ -468,7 +471,82 @@ main button {
 
 #gameDescription {
     font-size: 14px;
-    padding-top: 15px;
+    padding-top: 45px;
+}
+
+@media (max-width: 975px) {
+    #gameDescription {
+        padding-top: 0;
+        margin-top: 5px;
+    }
+    .mechanics {
+        margin: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .filter-btns {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    main button {
+        font-size: 14px;
+
+}
+}
+
+@media (max-width: 620px) {
+    .game-info {
+        display: flex;
+        flex-direction: column;
+    }
+    #gameImage {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .top-info {
+        display: flex;
+        font-size: 14px;
+        flex-direction: column;
+    }
+    .game-details h2 {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: center;
+        margin-top: 5px;
+    }
+    .mechanics {
+        display: flex;
+        align-items: center;
+        margin: 0px;
+    }
+    #mechanicsDropdown {
+        font-size: 12px;
+    }
+    .filter-btns {
+        font-size: 12px;
+    }
+    .players, .playtime, .mechanics {
+        margin-right: 0;
+        height: 45px;
+    }
+}
+
+@media (max-width: 350px) {
+    .game-details {
+        background: white;
+        display: flex;
+    }
+    .game-info {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1em;
+        flex-wrap: wrap;
+        border-color: #d6983c;
+        border-style: solid;
+    } 
 }
 
 .contact-text {

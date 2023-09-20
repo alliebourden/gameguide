@@ -127,8 +127,8 @@ async function fetchGameDetails() {
                         ? description.slice(0, maxCharacters) + '...'
                         : description;
                     gameDetailsDiv.innerHTML = `
-                        <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <div class="game-info">
+                            <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                             <h2 id="gameName">${gameDetails.name}</h2>
                             <div class="top-info">
                                 <div class="players">
@@ -144,7 +144,7 @@ async function fetchGameDetails() {
                                     <h5>Mechanics:</h5>
                                     <select id="mechanicsDropdown"></select>
                                 </div>
-                        </div>
+                            </div>
                             <p id="gameDescription">${shortDescription}</p>
                             ${description.length > maxCharacters
                                 ? '<button id="read-more-btn">Read More</button>'
