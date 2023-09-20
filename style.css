@@ -507,15 +507,33 @@ main button {
     }
     .filter-btns {
         font-size: 12px;
-    } 
+    }
+    .playtime {
+        margin-right: 0;
+
+    }
 }
 
 @media (max-width: 490px) {
     .game-info {
         padding-top: 5px;
     }
-    #gameName {
+    /* #gameName {
+        margin: 0px;
+    } */
+    #gameDescription {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 465px) {
+    .players {
+        margin-right: 10px;
+        height: 35px;
+    }
+    .playtime {
         margin: 0;
+        height: 35px;
     }
 }
 
