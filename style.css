@@ -503,19 +503,19 @@ main button {
         margin: 0px;
     }
     #mechanicsDropdown {
-        font-size: 14px;
-    }
-    #gameDescription {
-        margin-top: 5px;
+        font-size: 12px;
     }
     .filter-btns {
         font-size: 12px;
     } 
 }
 
-@media (max-width: 400px) {
-    .game-details {
-        max-width: 400px;
+@media (max-width: 490px) {
+    .game-info {
+        padding-top: 5px;
+    }
+    #gameName {
+        margin: 0;
     }
 }
 
