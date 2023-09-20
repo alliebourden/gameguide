@@ -68,6 +68,11 @@ document.getElementById('sortByName').addEventListener('click', () => {
         displayGames(currentPage);
 })
 
+
+document.getElementById('sortByHot').addEventListener('click', () => {
+        getHotGames();
+});
+
 // Buttons to navigate the displayed results
 document.getElementById('prevPage').addEventListener('click', () => {
         if (currentPage > 1) {
@@ -100,14 +105,15 @@ function getUrlParameter(name) {
         return urlParams.get(name);
 }
 
-// Function to fetch and display the HTML on the game details page
+// Fetch game details description
 async function fetchGameDetails() {
-        console.log('hello')
         const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
         gameDetailsContainer.innerHTML = '';
         const gameId = getUrlParameter('gameId');
+        
         if (gameId) {
             const apiUrl = `${url}/thing/${gameId}`;
+            
             try {
                 const res = await fetch(apiUrl);
                 
@@ -115,12 +121,71 @@ async function fetchGameDetails() {
                     const gameDetails = await res.json();
                     const gameDetailsDiv = document.createElement('div');
                     gameDetailsDiv.className = 'results';
+                    const description = gameDetails.description;
+                    const maxCharacters = 250;
+                    const shortDescription = description.length > maxCharacters
+                        ? description.slice(0, maxCharacters) + '...'
+                        : description;
                     gameDetailsDiv.innerHTML = `
+                        <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
+                        <div class="game-info">
+                            <h2 id="gameName">${gameDetails.name}</h2>
+                            <div class="top-info">
+                                <div class="players">
+                                    <img src="images/people.png" id="people">
+                                    <h5 id="players">Players: ${gameDetails.minPlayers} - ${gameDetails.maxPlayers}</h5>
+                                </div>
+                                <div class="playtime">
+                                    <img src="images/clock.png" id="clock">
+                                    <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
+                                </div>
+                                <div class="mechanics">
+                                    <img src="images/dice.png" id="dice">
+                                    <h5>Mechanics:</h5>
+                                    <select id="mechanicsDropdown"></select>
+                                </div>
+                        </div>
+                            <p id="gameDescription">${shortDescription}</p>
+                            ${description.length > maxCharacters
+                                ? '<button id="read-more-btn">Read More</button>'
+                                : ''}
+                        </div>
                         <h1 class="gd-name">${gameDetails.name}</h1>
                         <p id="game-escription">${gameDetails.description}</p>
                         <img id="game-image" src="${gameDetails.image}" alt="Game Image">
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
+                    const mechanicsDropdown = document.getElementById('mechanicsDropdown');
+                    mechanicsDropdown.innerHTML = '';
+                    if (gameDetails.mechanics && gameDetails.mechanics.length > 0) {
+                        for (const mechanic of gameDetails.mechanics) {
+                            const option = document.createElement('option');
+                            option.text = mechanic;
+                            mechanicsDropdown.appendChild(option);
+                        }
+                    } else {
+                        const defaultOption = document.createElement('option');
+                        defaultOption.text = 'No mechanics available';
+                        mechanicsDropdown.appendChild(defaultOption);
+                    }
+                    const gameDescription = document.getElementById('gameDescription');
+                    gameDescription.innerHTML = shortDescription;
+                    const readMoreButton = document.getElementById('read-more-btn');
+                    let isFullDescriptionVisible = false;
+                    
+                    if (readMoreButton) {
+                        readMoreButton.addEventListener('click', () => {
+                            isFullDescriptionVisible = !isFullDescriptionVisible;
+    
+                            if (isFullDescriptionVisible) {
+                                gameDescription.innerHTML = description;
+                                readMoreButton.textContent = 'Read Less';
+                            } else {
+                                gameDescription.innerHTML = shortDescription;
+                                readMoreButton.textContent = 'Read More';
+                            }
+                        });
+                    }
                 } else {
                     console.error('Failed to fetch game details');
                 }
@@ -129,5 +194,4 @@ async function fetchGameDetails() {
             }
         } else {
             console.error('No gameId parameter found in the URL');
-        }
-    }
+        }}
