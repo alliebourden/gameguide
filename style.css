@@ -357,7 +357,7 @@ main button {
 .game-details {
     background: #d6983c;
     display: flex;
-    padding: 1vh 1vw;
+    padding: 10px 10px;
     width: 90%;
     max-width: 1000px;
     border-radius: 10px;
@@ -365,6 +365,7 @@ main button {
 
 .game-details h2 {
     display: flex;
+    margin-bottom: 0;
 }
 
 .game-info {
@@ -468,39 +469,29 @@ main button {
 
 #gameDescription {
     font-size: 14px;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 
-@media (max-width: 940px) {
+@media (max-width: 860px) {
     .mechanics {
-        display: flex;
-        align-items: center;
         margin: 0;
     }
 }
 
-@media (max-width: 650px) {
-    .top-info {
+@media (max-width: 700px) {
+    .filter-btns {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+    main button {
         font-size: 14px;
-    }
-    .mechanics {
-        display: flex;
-        align-items: center;
-        margin: 0px;
-    }
-    #mechanicsDropdown {
-        font-size: 14px;
-    }
-    #gameDescription {
-        margin-top: 5px;
-    }
+
+}
 }
 
 @media (max-width: 575px) {
     .top-info {
         font-size: 14px;
-        margin-top: 100px;
-        justify-content: center;
     }
     .mechanics {
         display: flex;
@@ -513,6 +504,9 @@ main button {
     #gameDescription {
         margin-top: 5px;
     }
+    .filter-btns {
+        font-size: 12px;
+    } 
 }
 
 @media (max-width: 400px) {
