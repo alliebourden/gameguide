@@ -41,7 +41,7 @@ function displayGames(page) {
                 gameContainer.appendChild(gameData);
               }
 }
-
+ 
 // Sort displayed data by year
 document.getElementById('sortByYear').addEventListener('click', () => {
         sortByYearAscending = !sortByYearAscending;
@@ -99,6 +99,7 @@ document.addEventListener('click', async (event) => {
         }
       })
 
+// Get URL parameter to use in fetchGameDetails 
 function getUrlParameter(name) {
         const urlParams = new URLSearchParams(window.location.search);
         return urlParams.get(name);
@@ -149,6 +150,9 @@ async function fetchGameDetails() {
                                 ? '<button id="read-more-btn">Read More</button>'
                                 : ''}
                         </div>
+                        <h1 class="gd-name">${gameDetails.name}</h1>
+                        <p id="game-escription">${gameDetails.description}</p>
+                        <img id="game-image" src="${gameDetails.image}" alt="Game Image">
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
                     const mechanicsDropdown = document.getElementById('mechanicsDropdown');

@@ -1,4 +1,4 @@
-# module-one-project
+# GameGuide - Get Coding Module 1 Project
 
 In 2023 I was accepted into the Get Coding mentorship program through TechNL. This program allows individuals to re-skill into the tech industry by learning the tools and skills needed by current developers. Students are paired with a local mentor to guide them through each module.
 
