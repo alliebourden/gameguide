@@ -30,6 +30,7 @@ async function getHotGames() {
 // display API data 
 function displayGames(page) {
         const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
+        if (gameContainer) {
         gameContainer.innerHTML = '';
         const startIndex = (page - 1) * resultsPerPage;
         const endIndex = startIndex + resultsPerPage;
@@ -40,10 +41,10 @@ function displayGames(page) {
                 gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a></div>`;
                 gameContainer.appendChild(gameData);
               }
-}
+}}
  
 // Sort displayed data by year
-document.getElementById('sortByYear').addEventListener('click', () => {
+document.getElementById('sortByYear')?.addEventListener('click', () => {
         sortByYearAscending = !sortByYearAscending;
         games.sort((a, b) => {
                 if (sortByYearAscending) {
@@ -56,7 +57,7 @@ document.getElementById('sortByYear').addEventListener('click', () => {
 })
 
 // Sort displayed data by name
-document.getElementById('sortByName').addEventListener('click', () => {
+document.getElementById('sortByName')?.addEventListener('click', () => {
         sortByNameAscending = !sortByNameAscending;
         games.sort((a, b) => {
                 if (sortByNameAscending) {
@@ -69,7 +70,7 @@ document.getElementById('sortByName').addEventListener('click', () => {
 })
 
 
-document.getElementById('sortByHot').addEventListener('click', () => {
+document.getElementById('sortByHot')?.addEventListener('click', () => {
         getHotGames();
 });
 
@@ -150,9 +151,6 @@ async function fetchGameDetails() {
                                 ? '<button id="read-more-btn">Read More</button>'
                                 : ''}
                         </div>
-                        <h1 class="gd-name">${gameDetails.name}</h1>
-                        <p id="game-escription">${gameDetails.description}</p>
-                        <img id="game-image" src="${gameDetails.image}" alt="Game Image">
                     `;
                     gameDetailsContainer.appendChild(gameDetailsDiv);
                     const mechanicsDropdown = document.getElementById('mechanicsDropdown');
@@ -194,4 +192,5 @@ async function fetchGameDetails() {
             }
         } else {
             console.error('No gameId parameter found in the URL');
-        }}
+        }
+    }
