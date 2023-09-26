@@ -337,13 +337,13 @@ body, html {
     cursor: pointer;
 }
 
-.favorite.liked .heart-icon {
+/* .favorite.liked .heart-icon {
     display: none; 
 }
   
 .favorite.liked .heart-icon.red {
     display: inline;
-}
+} */
 
 main button {
     display: flex;

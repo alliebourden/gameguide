@@ -50,7 +50,6 @@ function displayGames(page) {
                                                 <h3 class="year">${games[i]["yearPublished"]}</h3>
                                                 <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
                                                         <span class="heart-icon">🤍</span>
-                                                        <span class="heart-icon red">❤️</span>
                                                 </span>
                                                 <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
                                         </div>
@@ -60,19 +59,25 @@ function displayGames(page) {
 }};
 
 document.addEventListener('click', (event) => {
-        if (event.target.classList.contains('favorite')) {
-        console.log('Heart icon clicked')
-          event.preventDefault();
-          const gameId = event.target.getAttribute('data-game-id');
-          const isLiked = isGameLiked(gameId);
-          if (isLiked) {
-            removeGameFromFavorites(gameId);
-          } else {
-            addGameToFavorites(gameId);
-          }
-          event.target.classList.toggle('liked', !isLiked);
+        const favoriteElement = event.target.closest('.favorite');
+        if (favoriteElement) {
+            event.preventDefault();
+            const heartIcon = favoriteElement.querySelector('.heart-icon');
+            const gameId = favoriteElement.getAttribute('data-game-id');
+            const isLiked = favoriteElement.classList.contains('liked');
+            if (!isLiked) {
+                addGameToFavorites(gameId);
+                favoriteElement.classList.add('liked');
+                heartIcon.textContent = '❤️';
+                console.log('red');
+            } else {
+                removeGameFromFavorites(gameId);
+                favoriteElement.classList.remove('liked');
+                heartIcon.textContent = '🤍';
+                console.log('white');
+            }
         }
-      });
+    });
 
 function isGameLiked(gameId) {
         const likedGames = getLikedGames();
