@@ -17,7 +17,6 @@ let sortByNameAscending = true;
 const resultsPerPage = 8;
 let currentPage = 1;
 
-
 getHotGames();
 
 // Main fetch function
@@ -34,11 +33,22 @@ function displayGames(page) {
         gameContainer.innerHTML = '';
         const startIndex = (page - 1) * resultsPerPage;
         const endIndex = startIndex + resultsPerPage;
+        function isGameLiked(gameId) {
+                const likedGames = getLikedGames();
+                return likedGames.includes(gameId);
+              }
         for (let i = startIndex; i < endIndex && i < games.length; i++) {
                 const gameId = games[i]["gameId"];
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
-                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a></div>`;
+                gameData.innerHTML = `<div class="card">
+                                        <div class="imgBox">
+                                                <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
+                                        </div>
+                                        <div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                                        </div>
+                                        <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">&#x2665;</span>
+                                        </div>`;
                 gameContainer.appendChild(gameData);
               }
 }}
