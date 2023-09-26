@@ -332,6 +332,19 @@ body, html {
     max-height: 150px;
 }
 
+.favorite .heart-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.favorite.liked .heart-icon {
+    display: none; 
+}
+  
+.favorite.liked .heart-icon.red {
+    display: inline;
+}
+
 main button {
     display: flex;
     justify-content: space-around;
