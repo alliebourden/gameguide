@@ -70,13 +70,18 @@ document.addEventListener('click', (event) => {
 function isGameLiked(gameId) {
         const likedGames = getLikedGames();
         return likedGames.includes(gameId);
-      };
+};
 
 function getLikedGames() {
         const likedGames = localStorage.getItem('likedGames');
         return likedGames ? JSON.parse(likedGames) : [];
-      };
+};
 
+function addGameToFavorites(gameId) {
+        const likedGames = getLikedGames();
+        likedGames.push(gameId);
+        localStorage.setItem('likedGames', JSON.stringify(likedGames));
+};
 
  
 // Sort displayed data by year
@@ -90,7 +95,7 @@ document.getElementById('sortByYear')?.addEventListener('click', () => {
                 }
         });
         displayGames(currentPage);
-})
+});
 
 // Sort displayed data by name
 document.getElementById('sortByName')?.addEventListener('click', () => {
