@@ -45,9 +45,11 @@ function displayGames(page) {
                                         <div class="imgBox">
                                                 <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
                                         </div>
-                                        <div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                                        <div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                                        <span class="heart-icon">🤍</span>
+                                        <span class="heart-icon red">❤️</span>
+                                </span><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
                                         </div>
-                                        <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">&#x2665;</span>
                                         </div>`;
                 gameContainer.appendChild(gameData);
               }
@@ -55,6 +57,7 @@ function displayGames(page) {
 
 document.addEventListener('click', (event) => {
         if (event.target.classList.contains('favorite')) {
+        console.log('Heart icon clicked')
           event.preventDefault();
           const gameId = event.target.getAttribute('data-game-id');
           const isLiked = isGameLiked(gameId);
