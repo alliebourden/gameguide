@@ -66,6 +66,13 @@ document.addEventListener('click', (event) => {
           event.target.classList.toggle('liked', !isLiked);
         }
       });
+
+function isGameLiked(gameId) {
+        const likedGames = getLikedGames();
+        return likedGames.includes(gameId);
+      };
+
+
  
 // Sort displayed data by year
 document.getElementById('sortByYear')?.addEventListener('click', () => {
