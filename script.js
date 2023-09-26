@@ -17,7 +17,6 @@ let sortByNameAscending = true;
 const resultsPerPage = 8;
 let currentPage = 1;
 
-
 getHotGames();
 
 // Main fetch function
@@ -34,14 +33,77 @@ function displayGames(page) {
         gameContainer.innerHTML = '';
         const startIndex = (page - 1) * resultsPerPage;
         const endIndex = startIndex + resultsPerPage;
+        function isGameLiked(gameId) {
+                const likedGames = getLikedGames();
+                return likedGames.includes(gameId);
+              }
         for (let i = startIndex; i < endIndex && i < games.length; i++) {
                 const gameId = games[i]["gameId"];
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
-                gameData.innerHTML = `<div class="card"><div class="imgBox"><img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto"></div><div class="contentBox"><h2>${games[i]["name"]}</h2><h3 class="year">${games[i]["yearPublished"]}</h3><a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a></div>`;
+                gameData.innerHTML = `<div class="card">
+                                        <div class="imgBox">
+                                                <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
+                                        </div>
+                                        <div class="contentBox">
+                                                <h2>${games[i]["name"]}</h2>
+                                                <h3 class="year">${games[i]["yearPublished"]}</h3>
+                                                <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                                                        <span class="heart-icon">🤍</span>
+                                                </span>
+                                                <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                                        </div>
+                                        </div>`;
                 gameContainer.appendChild(gameData);
               }
-}}
+}};
+
+document.addEventListener('click', (event) => {
+        const favoriteElement = event.target.closest('.favorite');
+        if (favoriteElement) {
+            event.preventDefault();
+            const heartIcon = favoriteElement.querySelector('.heart-icon');
+            const gameId = favoriteElement.getAttribute('data-game-id');
+            const isLiked = favoriteElement.classList.contains('liked');
+            if (!isLiked) {
+                addGameToFavorites(gameId);
+                favoriteElement.classList.add('liked');
+                heartIcon.textContent = '❤️';
+                console.log('red');
+            } else {
+                removeGameFromFavorites(gameId);
+                favoriteElement.classList.remove('liked');
+                heartIcon.textContent = '🤍';
+                console.log('white');
+            }
+        }
+    });
+
+function isGameLiked(gameId) {
+        const likedGames = getLikedGames();
+        return likedGames.includes(gameId);
+};
+
+function getLikedGames() {
+        const likedGames = localStorage.getItem('likedGames');
+        return likedGames ? JSON.parse(likedGames) : [];
+};
+
+function addGameToFavorites(gameId) {
+        const likedGames = getLikedGames();
+        likedGames.push(gameId);
+        localStorage.setItem('likedGames', JSON.stringify(likedGames));
+};
+
+function removeGameFromFavorites(gameId) {
+        const likedGames = getLikedGames();
+        const index = likedGames.indexOf(gameId);
+        if (index !== -1) {
+          likedGames.splice(index, 1);
+          localStorage.setItem('likedGames', JSON.stringify(likedGames));
+        }
+      };
+
  
 // Sort displayed data by year
 document.getElementById('sortByYear')?.addEventListener('click', () => {
@@ -54,7 +116,7 @@ document.getElementById('sortByYear')?.addEventListener('click', () => {
                 }
         });
         displayGames(currentPage);
-})
+});
 
 // Sort displayed data by name
 document.getElementById('sortByName')?.addEventListener('click', () => {
