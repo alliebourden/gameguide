@@ -72,6 +72,11 @@ function isGameLiked(gameId) {
         return likedGames.includes(gameId);
       };
 
+function getLikedGames() {
+        const likedGames = localStorage.getItem('likedGames');
+        return likedGames ? JSON.parse(likedGames) : [];
+      };
+
 
  
 // Sort displayed data by year
