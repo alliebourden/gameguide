@@ -83,6 +83,15 @@ function addGameToFavorites(gameId) {
         localStorage.setItem('likedGames', JSON.stringify(likedGames));
 };
 
+function removeGameFromFavorites(gameId) {
+        const likedGames = getLikedGames();
+        const index = likedGames.indexOf(gameId);
+        if (index !== -1) {
+          likedGames.splice(index, 1);
+          localStorage.setItem('likedGames', JSON.stringify(likedGames));
+        }
+      };
+
  
 // Sort displayed data by year
 document.getElementById('sortByYear')?.addEventListener('click', () => {
