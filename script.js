@@ -51,7 +51,21 @@ function displayGames(page) {
                                         </div>`;
                 gameContainer.appendChild(gameData);
               }
-}}
+}};
+
+document.addEventListener('click', (event) => {
+        if (event.target.classList.contains('favorite')) {
+          event.preventDefault();
+          const gameId = event.target.getAttribute('data-game-id');
+          const isLiked = isGameLiked(gameId);
+          if (isLiked) {
+            removeGameFromFavorites(gameId);
+          } else {
+            addGameToFavorites(gameId);
+          }
+          event.target.classList.toggle('liked', !isLiked);
+        }
+      });
  
 // Sort displayed data by year
 document.getElementById('sortByYear')?.addEventListener('click', () => {
