@@ -93,6 +93,7 @@ function addGameToFavorites(gameId) {
         const likedGames = getLikedGames();
         likedGames.push(gameId);
         localStorage.setItem('likedGames', JSON.stringify(likedGames));
+        displayLikedGames();
 };
 
 function removeGameFromFavorites(gameId) {
@@ -102,6 +103,7 @@ function removeGameFromFavorites(gameId) {
           likedGames.splice(index, 1);
           localStorage.setItem('likedGames', JSON.stringify(likedGames));
         }
+        displayLikedGames();
       };
 
  
@@ -162,16 +164,44 @@ document.addEventListener('click', async (event) => {
         }
       })
 
-const likedGamesContainer = document.getElementById('likedGamesContainer');
-
 function displayLikedGames() {
-        const likedGames = getLikedGames();
-        likedGamesContainer.innerHTML = '';
-        likedGames.forEach(async (gameId) => {
-                const gameData = await fetchGameById(gameId);
-                if (gameData) {
-                        const gameElement = createGameElement(gameData);
-                        likedGamesContainer.appendChild(gameElement);
-                }
-        })
+        const likedGamesContainer = document.getElementById('likedGamesContainer');
+        if (likedGamesContainer) {
+          likedGamesContainer.innerHTML = '';
+          const likedGames = getLikedGames();
+
+          likedGames.forEach(async (gameId) => {
+            const gameData = await fetchGameDetails(gameId);
+            if (gameData) {
+              const gameElement = document.createElement('div');
+              gameElement.className = 'liked-game';
+              gameElement.innerHTML = `<div class="liked-game-info">
+                                        <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
+                                        <div class="liked-game-details">
+                                          <h2>${gameData.name}</h2>
+                                          <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                                        </div>
+                                      </div>
+                                `;
+              likedGamesContainer.appendChild(gameElement);
+            }
+          });
+        }
+      }
+
+async function fetchGameDetails(gameId) {
+    const apiUrl = `${url}/thing/${gameId}`;
+    try {
+        const res = await fetch(apiUrl);
+        if (res.ok) {
+            const gameDetails = await res.json();
+            return gameDetails;
+        } else {
+            console.error('Failed to fetch game details');
+            return null;
+        }
+    } catch (error) {
+        console.error('An error occurred while fetching game details:', error);
+        return null;
+    }
 }

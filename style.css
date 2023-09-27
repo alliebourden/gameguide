@@ -345,6 +345,25 @@ body, html {
     display: inline;
 } */
 
+#likedGamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1360px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+.liked-game-info {
+    position: relative;
+    width: 320px;
+    height: 425px;
+    margin: 10px;
+    background: #3799E1;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
 main button {
     display: flex;
     justify-content: space-around;
