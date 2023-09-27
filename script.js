@@ -16,7 +16,9 @@ let sortByYearAscending = true;
 let sortByNameAscending = true;
 const resultsPerPage = 8;
 let currentPage = 1;
+let likedGameIds = getLikedGames();
 
+displayLikedGames();
 getHotGames();
 
 // Main fetch function
@@ -30,35 +32,37 @@ async function getHotGames() {
 function displayGames(page) {
         const gameContainer = document.getElementsByClassName('hotgame-contain')[0];
         if (gameContainer) {
-        gameContainer.innerHTML = '';
-        const startIndex = (page - 1) * resultsPerPage;
-        const endIndex = startIndex + resultsPerPage;
-        function isGameLiked(gameId) {
-                const likedGames = getLikedGames();
-                return likedGames.includes(gameId);
-              }
-        for (let i = startIndex; i < endIndex && i < games.length; i++) {
+            gameContainer.innerHTML = '';
+            const startIndex = (page - 1) * resultsPerPage;
+            const endIndex = startIndex + resultsPerPage;
+            for (let i = startIndex; i < endIndex && i < games.length; i++) {
                 const gameId = games[i]["gameId"];
+                const isCurrentlyLiked = isGameLiked(gameId);
                 const gameData = document.createElement('div');
                 gameData.className = 'results';
                 gameData.innerHTML = `<div class="card">
-                                        <div class="imgBox">
-                                                <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
-                                        </div>
-                                        <div class="contentBox">
-                                                <h2>${games[i]["name"]}</h2>
-                                                <h3 class="year">${games[i]["yearPublished"]}</h3>
-                                                <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
-                                                        <span class="heart-icon">🤍</span>
-                                                </span>
-                                                <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
-                                        </div>
-                                        </div>`;
+                    <div class="imgBox">
+                        <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
+                    </div>
+                    <div class="contentBox">
+                        <h2>${games[i]["name"]}</h2>
+                        <h3 class="year">${games[i]["yearPublished"]}</h3>
+                        <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                            <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
+                        </span>
+                        <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                    </div>
+                </div>`;
                 gameContainer.appendChild(gameData);
-              }
-}};
+            }
+        }
+    };
 
-document.addEventListener('click', (event) => {
+document.removeEventListener('click', handleFavoriteClick);
+
+document.addEventListener('click', handleFavoriteClick);
+
+function handleFavoriteClick(event) {
         const favoriteElement = event.target.closest('.favorite');
         if (favoriteElement) {
             event.preventDefault();
@@ -77,11 +81,10 @@ document.addEventListener('click', (event) => {
                 console.log('white');
             }
         }
-    });
+    }
 
 function isGameLiked(gameId) {
-        const likedGames = getLikedGames();
-        return likedGames.includes(gameId);
+        return likedGameIds.includes(gameId);
 };
 
 function getLikedGames() {
@@ -90,21 +93,19 @@ function getLikedGames() {
 };
 
 function addGameToFavorites(gameId) {
-        const likedGames = getLikedGames();
-        likedGames.push(gameId);
-        localStorage.setItem('likedGames', JSON.stringify(likedGames));
+        likedGameIds.push(gameId);
+        localStorage.setItem('likedGames', JSON.stringify(likedGameIds));
         displayLikedGames();
-};
+    }
 
 function removeGameFromFavorites(gameId) {
-        const likedGames = getLikedGames();
-        const index = likedGames.indexOf(gameId);
-        if (index !== -1) {
-          likedGames.splice(index, 1);
-          localStorage.setItem('likedGames', JSON.stringify(likedGames));
-        }
-        displayLikedGames();
-      };
+    const index = likedGameIds.indexOf(gameId);
+    if (index !== -1) {
+        likedGameIds.splice(index, 1);
+        localStorage.setItem('likedGames', JSON.stringify(likedGameIds));
+    }
+    displayLikedGames();
+}
 
  
 // Sort displayed data by year
@@ -164,30 +165,29 @@ document.addEventListener('click', async (event) => {
         }
       })
 
-function displayLikedGames() {
-        const likedGamesContainer = document.getElementById('likedGamesContainer');
-        if (likedGamesContainer) {
-          likedGamesContainer.innerHTML = '';
-          const likedGames = getLikedGames();
+async function displayLikedGames() {
+    const likedGamesContainer = document.getElementById('likedGamesContainer');
+    if (likedGamesContainer) {
+        likedGamesContainer.innerHTML = '';
+        const likedGames = getLikedGames();
 
-          likedGames.forEach(async (gameId) => {
+        for (const gameId of likedGames) {
             const gameData = await fetchGameDetails(gameId);
             if (gameData) {
-              const gameElement = document.createElement('div');
-              gameElement.className = 'liked-game';
-              gameElement.innerHTML = `<div class="liked-game-info">
-                                        <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
-                                        <div class="liked-game-details">
-                                          <h2>${gameData.name}</h2>
-                                          <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
-                                        </div>
-                                      </div>
-                                `;
-              likedGamesContainer.appendChild(gameElement);
+                const gameElement = document.createElement('div');
+                gameElement.className = 'liked-game';
+                gameElement.innerHTML = `<div class="liked-game-info">
+                    <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
+                    <div class="liked-game-details">
+                        <h4>${gameData.name}</h4>
+                        <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                    </div>
+                </div>`;
+                likedGamesContainer.appendChild(gameElement);
             }
-          });
         }
-      }
+    }
+}
 
 async function fetchGameDetails(gameId) {
     const apiUrl = `${url}/thing/${gameId}`;
