@@ -14,9 +14,11 @@ const url = 'https://bgg-json.azurewebsites.net';
 let games = [];
 let sortByYearAscending = true;
 let sortByNameAscending = true;
+let sortByRankAscending = true;
 const resultsPerPage = 8;
 let currentPage = 1;
 let likedGameIds = getLikedGames();
+let cardsPerPage = resultsPerPage;
 
 // On page load Liked Games and Hot Games
 displayLikedGames();
@@ -31,10 +33,11 @@ async function getHotGames() {
 
 // display API data for individual games
 function displayGames(page) {
+    console.log('Displaying games:', games);
     const gameContainer = document.querySelector('.hotgame-contain');
     if (gameContainer) {
-      const startIndex = (page - 1) * resultsPerPage;
-      const endIndex = startIndex + resultsPerPage;
+      const startIndex = (page - 1) * cardsPerPage;
+      const endIndex = startIndex + cardsPerPage;
       for (let i = startIndex; i < endIndex && i < games.length; i++) {
         const gameId = games[i]["gameId"];
         const isCurrentlyLiked = isGameLiked(gameId);
@@ -45,22 +48,21 @@ function displayGames(page) {
                 <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
             </div>
             <div class="contentBox">
-                <h2>${games[i]["name"]}</h2>
+                <h3>${games[i]["name"]}</h3><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
+            </span>
                 <h3 class="year">${games[i]["yearPublished"]}</h3>
-                <span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
-                    <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
-                </span>
                 <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
             </div>
         </div>`;
         gameContainer.appendChild(gameData);
       }
     }
-    const totalPages = Math.ceil(games.length / resultsPerPage);
+	const totalPages = Math.ceil(games.length / cardsPerPage); // Use cardsPerPage here
     if (currentPage >= totalPages) {
       document.getElementById('loadMore').style.display = 'none';
     }
-  }
+}
 
 // Code to handle the heart to toggle liked game
 document.removeEventListener('click', handleFavoriteClick);
@@ -123,42 +125,71 @@ document.addEventListener('click', async (event) => {
   })
 
 
- 
+// Load an additional 8 more games to the page
+document.getElementById('loadMore').addEventListener('click', () => {
+    currentPage++;
+    cardsPerPage += resultsPerPage;
+    displayGames(currentPage);
+});
+
 // Sort displayed data by year
 document.getElementById('sortByYear')?.addEventListener('click', () => {
+    try {
         sortByYearAscending = !sortByYearAscending;
         games.sort((a, b) => {
-                if (sortByYearAscending) {
-                        return a.yearPublished - b.yearPublished;
-                } else {
-                        return b.yearPublished - a.yearPublished;
-                }
+            if (sortByYearAscending) {
+                return a.yearPublished - b.yearPublished;
+            } else {
+                return b.yearPublished - a.yearPublished;
+            }
         });
+        console.log('year');
+        const gameContainer = document.querySelector('.hotgame-contain');
+        gameContainer.innerHTML = '';
         displayGames(currentPage);
+    } catch (error) {
+        console.error('An error occurred while sorting by year:', error);
+    }
 });
 
 // Sort displayed data by name
 document.getElementById('sortByName')?.addEventListener('click', () => {
+    try {
         sortByNameAscending = !sortByNameAscending;
         games.sort((a, b) => {
-                if (sortByNameAscending) {
-                        return a.name.localeCompare(b.name);
-                } else {
-                        return b.name.localeCompare(a.name);
-                }
+            if (sortByNameAscending) {
+                return a.name.localeCompare(b.name);
+            } else {
+                return b.name.localeCompare(a.name);
+            }
         });
+        console.log('name');
+        const gameContainer = document.querySelector('.hotgame-contain');
+        gameContainer.innerHTML = '';
         displayGames(currentPage);
-})
-
-// View games by hotness (trending)
-document.getElementById('sortByHot')?.addEventListener('click', () => {
-        getHotGames();
+    } catch (error) {
+        console.error('An error occurred while sorting by name:', error);
+    }
 });
 
-// Load an additional 8 more games to the page
-document.getElementById('loadMore').addEventListener('click', () => {
-    currentPage++;
-    displayGames(currentPage);
+// Sort displayed data by hot
+document.getElementById('sortByHot')?.addEventListener('click', () => {
+    try {
+        sortByRankAscending = !sortByRankAscending;
+        games.sort((a, b) => {
+            if (sortByRankAscending) {
+                return a.rank - b.rank;
+            } else {
+                return b.rank - a.rank;
+            }
+        });
+        console.log('rank');
+        const gameContainer = document.querySelector('.hotgame-contain');
+        gameContainer.innerHTML = '';
+        displayGames(currentPage);
+    } catch (error) {
+        console.error('An error occurred while sorting by rank:', error);
+    }
 });
 
 // Display Liked Games in library
@@ -173,10 +204,13 @@ async function displayLikedGames() {
             if (gameData) {
                 const gameElement = document.createElement('div');
                 gameElement.className = 'liked-game';
-                gameElement.innerHTML = `<div class="liked-game-info">
-                    <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
-                    <div class="liked-game-details">
-                        <h4>${gameData.name}</h4>
+                gameElement.innerHTML = `
+                <div class="liked-game-info">
+                    <div id="likedThumbnail">
+                        <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
+                    </div>
+                    <div id="liked-name-link">
+                        <h5>${gameData.name}</h5>
                         <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
                     </div>
                 </div>`;
