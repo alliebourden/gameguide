@@ -161,3 +161,17 @@ document.addEventListener('click', async (event) => {
           window.location.href = `game-details.html?gameId=${gameId}`;
         }
       })
+
+const likedGamesContainer = document.getElementById('likedGamesContainer');
+
+function displayLikedGames() {
+        const likedGames = getLikedGames();
+        likedGamesContainer.innerHTML = '';
+        likedGames.forEach(async (gameId) => {
+                const gameData = await fetchGameById(gameId);
+                if (gameData) {
+                        const gameElement = createGameElement(gameData);
+                        likedGamesContainer.appendChild(gameElement);
+                }
+        })
+}
