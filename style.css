@@ -338,6 +338,14 @@ body, html {
     cursor: pointer;
 }
 
+.likedGames {
+    border-top: solid #000000;
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 #likedGamesContainer {
     display: flex;
     flex-wrap: wrap;
@@ -362,12 +370,16 @@ body, html {
     border-radius: 5px;
 }
 
-.liked-game {
-    display: flex;
+#liked-game-other h3 {
+    color: white;
 }
 
-.liked-game-details {
-    display: flex;
+.learn-liked {
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
 }
 
 

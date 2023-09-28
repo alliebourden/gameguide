@@ -128,7 +128,14 @@ document.addEventListener('click', async (event) => {
 // Load an additional 8 more games to the page
 document.getElementById('loadMore').addEventListener('click', () => {
     currentPage++;
-    cardsPerPage += resultsPerPage;
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = startIndex + resultsPerPage;
+    if (startIndex >= games.length) {
+        document.getElementById('loadMore').disabled = true;
+        return;
+    }
+
+    cardsPerPage = resultsPerPage;
     displayGames(currentPage);
 });
 
@@ -209,9 +216,9 @@ async function displayLikedGames() {
                     <div id="likedThumbnail">
                         <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
                     </div>
-                    <div id="liked-name-link">
-                        <h5>${gameData.name}</h5>
-                        <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                    <div id="liked-game-other">
+                        <h3>${gameData.name}</h3>
+                        <a href="game-details.html?gameId=${gameId}" class="learn-liked">Learn More</a>
                     </div>
                 </div>`;
                 likedGamesContainer.appendChild(gameElement);
