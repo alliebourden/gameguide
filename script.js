@@ -209,9 +209,9 @@ async function displayLikedGames() {
                     <div id="likedThumbnail">
                         <img src="${gameData.thumbnail}" alt="Game Thumbnail" class="liked-game-thumbnail">
                     </div>
-                    <div id="liked-name-link">
-                        <h5>${gameData.name}</h5>
-                        <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                    <div id="liked-game-other">
+                        <h3>${gameData.name}</h3>
+                        <a href="game-details.html?gameId=${gameId}" class="learn-liked">Learn More</a>
                     </div>
                 </div>`;
                 likedGamesContainer.appendChild(gameElement);
