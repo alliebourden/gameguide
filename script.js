@@ -127,6 +127,10 @@ document.addEventListener('click', async (event) => {
 
 // Load an additional 8 more games to the page
 document.getElementById('loadMore').addEventListener('click', () => {
+    if (games.length >= 50) {
+        console.log('No more games to load.');
+        return;
+    }
     currentPage++;
     cardsPerPage = resultsPerPage;
     displayGames(currentPage);
