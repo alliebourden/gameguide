@@ -128,7 +128,7 @@ document.addEventListener('click', async (event) => {
 // Load an additional 8 more games to the page
 document.getElementById('loadMore').addEventListener('click', () => {
     currentPage++;
-    cardsPerPage += resultsPerPage;
+    cardsPerPage = resultsPerPage;
     displayGames(currentPage);
 });
 
