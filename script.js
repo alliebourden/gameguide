@@ -127,11 +127,14 @@ document.addEventListener('click', async (event) => {
 
 // Load an additional 8 more games to the page
 document.getElementById('loadMore').addEventListener('click', () => {
-    if (games.length >= 50) {
-        console.log('No more games to load.');
+    currentPage++;
+    const startIndex = (currentPage - 1) * resultsPerPage;
+    const endIndex = startIndex + resultsPerPage;
+    if (startIndex >= games.length) {
+        document.getElementById('loadMore').disabled = true;
         return;
     }
-    currentPage++;
+
     cardsPerPage = resultsPerPage;
     displayGames(currentPage);
 });
