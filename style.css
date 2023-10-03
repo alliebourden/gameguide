@@ -382,11 +382,13 @@ body, html {
 
 .liked-game-thumbnail {
     margin: 10px;
+    max-width: 150px;
     border-radius: 5px;
 }
 
 #liked-game-other h3 {
     color: white;
+    margin-right: 5px;
 }
 
 .learn-liked {
@@ -782,4 +784,18 @@ footer {
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.likedGames {
+    display: flex;
+    justify-content: center;
+}
+
+#likedGamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1360px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 15px 0px 15px;
 }
