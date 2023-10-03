@@ -705,3 +705,20 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+#viewLiked {
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.liked-btn-contain {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
