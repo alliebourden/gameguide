@@ -115,6 +115,7 @@ body, html {
 	align-items: center;
 	padding: 0 24px;
     transition: all 0.3s ease-in-out;
+    text-align: center;
 }
 
 .nav-list {
@@ -579,6 +580,12 @@ main button {
     }
     .mechanics {
         margin: 0;
+    }
+}
+
+@media (max-width: 850px) {
+    .nav-item a {
+        font-size: 20px;
     }
 }
 
