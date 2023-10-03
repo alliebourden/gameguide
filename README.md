@@ -2,27 +2,28 @@
 
 ## Introduction
 
-In 2023 I was accepted into the Get Coding mentorship program through TechNL. This program allows individuals to re-skill into the tech industry by learning the tools and skills needed by current developers. Students are paired with a local mentor to guide them through each module.
+In 2023, I joined the Get Coding mentorship program, facilitated by TechNL. This program offers individuals an opportunity to reskill themselves for the dynamic tech industry by equipping them with the essential tools and skills demanded by today's developers. As part of this program, students like me are paired with local mentors who provide guidance through each module.
 
 ## Module One Project
 
-The first module of the Get Coding program involves creating a simple web-based application. The completion of this module has allowed me to apply a variety of entry-level web development skills such as:
+For the first module of the Get Coding program, I was tasked with creating a straightforward web-based application. The completion of this module enabled me to apply a range of foundational web development skills, including:
 
-- Setting up and managing projects using github/vscode.
-- The habit committing and pushing code frequently.
-- Creating a simple web app using HTML, CSS and Vanilla JS.
-- A strong understanding of JS and programming logic in preparation to use ES6, React.js or Node.js.
+1. Setting up and managing projects using github/vscode.
+2. The habit committing and pushing code frequently.
+3. Creating a simple web app using HTML, CSS and Vanilla JS.
+4. A strong understanding of JS and programming logic in preparation to use ES6, React.js or Node.js.
 
-I have a large selection of board games and I am always looking for new ones to add to my collection. I also like to keep a variety of games on hand, as the interest and skill varies depending on who I am playing with. After discovering an API I wanted to work with, I decided to create a website that allows the user to help decide on a board game they would like to play or purchase. The idea was that a user could input variables, such as player count and playtime, and once submitted, they can view suggested board games. 
+Personally, I have a collection of board games and am always on the lookout for new additions. I enjoy having a diverse selection of games available, as the interests and skill levels of players can vary. After discovering an board game focused API, I decided to create a website that allowed users to make informed decisions about which board game to play or purchase. The concept was to allow users to input variables such as player count and playtime, and then receive suggestions for board games based on their preferences.
+
 
 ## Project Obstacles
 
-After choosing the API, I began to work on the basic HTML and CSS components of the application. As a graphic designer, I felt comfortable developing the foundations of the application to work with the data I would receive from the API. Learning JavaScript was my biggest learning curve, but soon enough I had built a small amount of functionality to access my API data and begin fleshing out much of the JS.
+After choosing the API, I began to work on the basic HTML and CSS components of the application. As a graphic designer, I felt comfortable developing the foundations of the application to display with the data I would receive from the API. My most significant challenge was learning JavaScript, but soon enough I had built functionality to access my API data and begin learning how to manipulate the data for my web application.
 
-Unfortunately, it was at this point the API I would using shut down by the developers. This was a major set back for myself and the project, but I looked at it from the perspective of if I was an actual developer, knowing flexibility and changing priorities were not uncommon. With the guidance of my mentor, we found a new API, albeit with less API endpoints to work with, and we modified the vision of GameGuide.
+Unfortunately, it was at this point the API I was working with was shut down by the developers. This was a set back for myself and the project, but shortly after I identified a new API, albeit with fewer endpoints to work with, and adjusted the vision for GameGuide accordingly.
 
 ## GameGuide
 
-With a new API to work with, the idea behind GameGuide was updated. Instead of having users input values (# of players, mechanics, so on), now the user is presented with a list of the top trending games, and there they can click to learn more about the game.
+With the introduction of a new API, GameGuide underwent a change. Instead of having users input specific values like the number of players and game mechanics, the updated GameGuide presents users with a list of the top trending games. Here, users can add their favorite games to a local library and access detailed information about individual games.
 
-The index page has general introduction, and using the navigation bar the user can navigate to the other sections. "About" gives a more concise introduction to the application. "GameGuide" is where users can view the top trending games, sort them by name or year published. Then the user can choose a game they are interested in and navigate to a "Game Details" page to learn more about that game. "Contact" page has a form that users can submit their comments and I receive to my email through a third-party application.
+The index page provides a general introduction to the application, and users can navigate to other sections using the navigation bar. The "About" section offers a concise introduction to the application's purpose, while "GameGuide" allows users to explore the top trending games, sorting them by name or year of publication. Users can select a game of interest and navigate to a "Game Details" page by clicking "Learn More" to see more of that game's information. Alternatively, users can "like" as many games as they wish and view their liked games on the "Liked Games" page. The "Contact" page features a form where users can submit their comments, which I receive via email through a third-party application.
