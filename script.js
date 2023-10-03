@@ -87,8 +87,8 @@ function handleFavoriteClick(event) {
         }
     }
 
-function isGameLiked(gameId) {
-        return likedGameIds.includes(gameId);
+    function isGameLiked(gameId) {
+        return likedGameIds.includes(gameId.toString());
 };
 
 function getLikedGames() {
@@ -97,8 +97,10 @@ function getLikedGames() {
 };
 
 function addGameToFavorites(gameId) {
+    if (isGameLiked(gameId) === false) {
         likedGameIds.push(gameId);
         localStorage.setItem('likedGames', JSON.stringify(likedGameIds));
+    }
         displayLikedGames();
     }
 
