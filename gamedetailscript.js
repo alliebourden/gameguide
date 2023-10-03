@@ -50,11 +50,13 @@ async function fetchGameDetails() {
                             <div class="playtime">
                                 <img src="images/clock.png" id="clock">
                                 <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
-                            </div>
                             <div class="mechanics">
                                 <img src="images/dice.png" id="dice">
-                                <h5>Mechanics:</h5>
-                                <select id="mechanicsDropdown"></select>
+                                    <input type="checkbox" id="list-item-1">
+                                        <label for="list-item-1" class="first"><h5>Click for Mechanics</h5></label>
+                                            <ul>
+                                                <li><h5>${gameDetails.mechanics}</h5></li>
+                                            </ul>
                             </div>
                         </div>
                         <p id="gameDescription">${shortDescription}</p>
@@ -64,19 +66,6 @@ async function fetchGameDetails() {
                     </div>
                 `;
                 gameDetailsContainer.appendChild(gameDetailsDiv);
-                const mechanicsDropdown = document.getElementById('mechanicsDropdown');
-                mechanicsDropdown.innerHTML = '';
-                if (gameDetails.mechanics && gameDetails.mechanics.length > 0) {
-                    for (const mechanic of gameDetails.mechanics) {
-                        const option = document.createElement('option');
-                        option.text = mechanic;
-                        mechanicsDropdown.appendChild(option);
-                    }
-                } else {
-                    const defaultOption = document.createElement('option');
-                    defaultOption.text = 'No mechanics available';
-                    mechanicsDropdown.appendChild(defaultOption);
-                }
                 const gameDescription = document.getElementById('gameDescription');
                 gameDescription.innerHTML = shortDescription;
                 const readMoreButton = document.getElementById('read-more-btn');

@@ -543,6 +543,7 @@ main button {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin: 0;
 }
 
 .playtime {
@@ -584,6 +585,7 @@ main button {
 .mechanics {
     display: flex;
     align-items: center;
+    margin: 0;
 }
 
 .mechanics h5 {
@@ -829,3 +831,20 @@ footer {
         border-style: solid;
     }
 }
+
+input[type="checkbox"]{
+    position: absolute;
+    left: -9999px;
+  }
+  
+  input[type="checkbox"] ~ ul{
+    height: 0;
+    transform: scaleY(0);
+  }
+  
+  input[type="checkbox"]:checked ~ ul{
+    height: 100%;
+    transform-origin: top;
+    transition: transform .2s ease-out;
+    transform: scaleY(1); 
+  }
