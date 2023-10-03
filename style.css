@@ -558,6 +558,10 @@ main button {
 }
 
 @media (max-width: 975px) {
+    .landing {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
     .gg-info {
         margin-left: 10%;
         margin-right: 10%;
