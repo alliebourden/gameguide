@@ -214,6 +214,12 @@ body, html {
     text-align: center;
 }
 
+.liked-games-info {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    text-align: center;
+}
+
 .hotgames {
     display: flex;
     justify-content: center;
@@ -339,7 +345,6 @@ body, html {
 }
 
 .likedGames {
-    border-top: solid #000000;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -678,15 +683,18 @@ footer {
 
 #sortByHot {
     margin-right: 10px;
+    align-items: center;
 }
 
 #sortByYear {
     margin-right: 10px;
     margin-left: 10px;
+    align-items: center;
 }
 
 #sortByName {
     margin-left: 10px;
+    align-items: center;
 }
 
 .display-btns {
@@ -694,4 +702,6 @@ footer {
     margin-right: 27.5%;
     display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
