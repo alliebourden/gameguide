@@ -1,9 +1,17 @@
+body, html {
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+/* GameGuide logo at top of page */
 #logo {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+/* Style for all banners */
 .banner {
     background-image: url(images/gameguide-banner.png);
     height: 50%;
@@ -78,6 +86,7 @@
     color: white;
 }
 
+/* Navigation bar styling */
 ul {
 	list-style: none;
     padding: 0;
@@ -102,12 +111,6 @@ header a {
 	min-height: 60px;
 }
 
-body, html {
-    font-family: 'Poppins', sans-serif;
-    height: 100%;
-    margin: 0;
-}
-
 .nav {
 	min-height: 70px;
 	display: flex;
@@ -126,11 +129,6 @@ body, html {
 .nav-link {
 	color: white;
 	transition: color 0.4s;
-}
-
-.nav-link:hover,
-.nav-link:focus {
-    color: #d62c32;
 }
 
 .hamburger {
@@ -196,6 +194,23 @@ body, html {
     }
 }
 
+/* Main button styling */
+main button {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    background: #3799E1;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    border-radius: 30px;
+}
+
+
+/* Index page */
 .landing {
     margin-left: 27.5%;
     margin-right: 27.5%;
@@ -203,14 +218,20 @@ body, html {
     text-align: center;
 }
 
-.cta-button {
+.trybutton {
     background-color: #d6983c;
     color: #FFF;
     padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none; 
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: larger;
 }
 
+.trybutton:hover {
+    background-color: #0056b3;
+}
+
+/* About page */
 .about {
     margin-left: 27.5%;
     margin-right: 27.5%;
@@ -218,13 +239,8 @@ body, html {
     text-align: center;
 }
 
+/* GameGuide Page */
 .gg-info {
-    margin-left: 27.5%;
-    margin-right: 27.5%;
-    text-align: center;
-}
-
-.liked-games-info {
     margin-left: 27.5%;
     margin-right: 27.5%;
     text-align: center;
@@ -354,6 +370,82 @@ body, html {
     cursor: pointer;
 }
 
+#viewLiked {
+    font-size: 18px;
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.liked-btn-contain {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-btns {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#sortByHot {
+    margin-right: 10px;
+    align-items: center;
+}
+
+#sortByYear {
+    margin-right: 10px;
+    margin-left: 10px;
+    align-items: center;
+}
+
+#sortByName {
+    margin-left: 10px;
+    align-items: center;
+}
+
+.display-btns {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#prevPage {
+    margin-right: 5px;
+}
+
+#nextPage {
+    margin-left: 5px;
+}
+
+.arrow-up-icon {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffce00;
+}
+
+#scrollUp {
+    margin-left: 10px;
+    width: 40px;
+}
+
+/* Liked Games Page */
 .likedGames {
     display: flex;
     justify-content: center;
@@ -367,6 +459,12 @@ body, html {
     justify-content: center;
     align-items: center;
     margin: 15px 15px 0px 15px;
+}
+
+.liked-games-info {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    text-align: center;
 }
 
 .liked-game-info {
@@ -398,22 +496,7 @@ body, html {
     text-decoration: none;
 }
 
-
-main button {
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
-    background: #3799E1;
-    color: white;
-    font-size: 18px;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    width: 150px;
-    /* margin: 20px auto 20px; */
-    border-radius: 30px;
-}
-
+/* Game Detail page */
 .game-details-contain {
     width: 100%;
     display: flex;
@@ -541,6 +624,78 @@ main button {
     padding-top: 45px;
 }
 
+/* Contact Page */
+.contact-text {
+    margin-left: 22.5%;
+    margin-right: 22.5%;
+    display: block;
+    text-align: center;
+}
+
+.contact-info {
+    width: 100%;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    background: #d6983c;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+form input, form textarea {
+    border: 0;
+    margin: 10px 0;
+    padding: 20px;
+    outline: none;
+    background: white;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 15px;
+    background: #3799E1;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+    margin: 20px auto 0;
+    border-radius: 30px;
+}
+
+/* Footer */
+footer {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    background-color: #3799E1;
+    color: white;
+    margin-top: 14px;
+    padding-bottom: 14px;
+}
+
+.mailbutton {
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.mailbutton:hover {
+    background-color: #ffce00;
+}
+
+/* Media queries */
 @media (max-width: 1075px) {
     .filter-btns {
         margin-left: 0;
@@ -658,161 +813,4 @@ main button {
         border-color: #d6983c;
         border-style: solid;
     } 
-}
-
-.contact-text {
-    margin-left: 22.5%;
-    margin-right: 22.5%;
-    display: block;
-    text-align: center;
-}
-
-.contact-info {
-    width: 100%;
-    margin-top: 2vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-form {
-    background: #d6983c;
-    display: flex;
-    flex-direction: column;
-    padding: 2vh 4vw;
-    width: 90%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-form input, form textarea {
-    border: 0;
-    margin: 10px 0;
-    padding: 20px;
-    outline: none;
-    background: white;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-form button {
-    padding: 15px;
-    background: #3799E1;
-    color: white;
-    font-size: 18px;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    width: 150px;
-    margin: 20px auto 0;
-    border-radius: 30px;
-}
-
-footer {
-    display: block;
-    text-align: center;
-    overflow: hidden;
-    background-color: #3799E1;
-    color: white;
-    margin-top: 14px;
-    padding-bottom: 14px;
-}
-
-.mailbutton {
-    background-color: #d6983c;
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-}
-
-.mailbutton:hover {
-    background-color: #ffce00;
-}
-
-.filter-btns {
-    margin-left: 27.5%;
-    margin-right: 27.5%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-#sortByHot {
-    margin-right: 10px;
-    align-items: center;
-}
-
-#sortByYear {
-    margin-right: 10px;
-    margin-left: 10px;
-    align-items: center;
-}
-
-#sortByName {
-    margin-left: 10px;
-    align-items: center;
-}
-
-.display-btns {
-    margin-left: 27.5%;
-    margin-right: 27.5%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-#prevPage {
-    margin-right: 5px;
-}
-
-#nextPage {
-    margin-left: 5px;
-}
-
-#viewLiked {
-    font-size: 18px;
-    background-color: #d6983c;
-    color: #FFF;
-    padding: 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
-.liked-btn-contain {
-    margin-left: 27.5%;
-    margin-right: 27.5%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.trybutton {
-    background-color: #d6983c;
-    color: #FFF;
-    padding: 10px 20px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-size: larger;
-}
-
-.trybutton:hover {
-    background-color: #0056b3;
-}
-
-.arrow-up-icon {
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid #ffce00;
-}
-
-#scrollUp {
-    margin-left: 10px;
-    width: 40px;
 }
