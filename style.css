@@ -356,18 +356,17 @@ body, html {
 
 .likedGames {
     display: flex;
-    justify-self: center;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-#likedGamesContainer {
+.likedGamesContainer {
     display: flex;
     flex-wrap: wrap;
     width: 1360px;
     justify-content: center;
     align-items: center;
-    margin: 15px;
+    margin: 15px 15px 0px 15px;
 }
 
 .liked-game-info {
@@ -784,18 +783,4 @@ footer {
     text-align: center;
     justify-content: center;
     align-items: center;
-}
-
-.likedGames {
-    display: flex;
-    justify-content: center;
-}
-
-#likedGamesContainer {
-    display: flex;
-    flex-wrap: wrap;
-    width: 1360px;
-    justify-content: center;
-    align-items: center;
-    margin: 15px 15px 0px 15px;
 }

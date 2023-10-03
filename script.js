@@ -211,7 +211,7 @@ document.getElementById('sortByHot')?.addEventListener('click', () => {
 
 // Display Liked Games in library
 async function displayLikedGames() {
-    const likedGamesContainer = document.getElementById('likedGamesContainer');
+    const likedGamesContainer = document.getElementsByClassName('likedGamesContainer')[0];
     if (likedGamesContainer) {
         likedGamesContainer.innerHTML = '';
         const likedGames = getLikedGames();
