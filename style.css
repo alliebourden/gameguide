@@ -759,7 +759,22 @@ footer {
         font-size: 14px;
 
 }
+#sortByHot {
+    height: 72px;
+    width: 100px;
 }
+
+#sortByYear {
+    height: 72px;
+    width: 100px;
+}
+
+#sortByName {
+    height: 72px;
+    width: 100px;
+}
+}
+
 
 @media (max-width: 620px) {
     .game-info {
@@ -812,5 +827,6 @@ footer {
         flex-wrap: wrap;
         border-color: #d6983c;
         border-style: solid;
-    } 
+    }
+    
 }
