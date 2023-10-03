@@ -123,6 +123,7 @@ document.addEventListener('click', async (event) => {
     }
   })
 
+// Navigation buttons event listeners
 const prevButton = document.getElementById('prevButton');
 const nextButton = document.getElementById('nextButton');
 
@@ -255,6 +256,7 @@ async function fetchGameDetails(gameId) {
     }
 }
 
+// Scroll up on Game Guide event listener
 document.getElementById('scrollUp').addEventListener('click', function() {
     const targetSection = document.getElementById('viewLiked');
     if (targetSection) {
