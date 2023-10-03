@@ -572,6 +572,11 @@ main button {
         margin-left: 10%;
         margin-right: 10%;
     }
+
+    .liked-games-info {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
     p {
         font-size: 14px;
     }
