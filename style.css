@@ -726,7 +726,7 @@ footer {
 }
 
 .mailbutton:hover {
-    background-color: #0056b3;
+    background-color: #ffce00;
 }
 
 .filter-btns {
@@ -788,4 +788,17 @@ footer {
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+
+.trybutton {
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: larger;
+}
+
+.trybutton:hover {
+    background-color: #0056b3;
 }
