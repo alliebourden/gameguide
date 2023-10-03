@@ -15,10 +15,9 @@ let games = [];
 let sortByYearAscending = true;
 let sortByNameAscending = true;
 let sortByRankAscending = true;
-const resultsPerPage = 8;
 let currentPage = 1;
+let cardsPerPage = 8
 let likedGameIds = getLikedGames();
-let cardsPerPage = resultsPerPage;
 
 // On page load Liked Games and Hot Games
 displayLikedGames();
@@ -33,34 +32,32 @@ async function getHotGames() {
 
 // display API data for individual games
 function displayGames(page) {
-    console.log('Displaying games:', games);
     const gameContainer = document.querySelector('.hotgame-contain');
     if (gameContainer) {
-      const startIndex = (page - 1) * cardsPerPage;
-      const endIndex = startIndex + cardsPerPage;
-      for (let i = startIndex; i < endIndex && i < games.length; i++) {
-        const gameId = games[i]["gameId"];
-        const isCurrentlyLiked = isGameLiked(gameId);
-        const gameData = document.createElement('div');
-        gameData.className = 'results';
-        gameData.innerHTML = `<div class="card">
-            <div class="imgBox">
-                <img src="${games[i]["thumbnail"]}" alt="game photo" class="gamephoto">
-            </div>
-            <div class="contentBox">
-                <h3>${games[i]["name"]}</h3><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
-                <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
-            </span>
-                <h3 class="year">${games[i]["yearPublished"]}</h3>
-                <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
-            </div>
-        </div>`;
-        gameContainer.appendChild(gameData);
-      }
-    }
-	const totalPages = Math.ceil(games.length / cardsPerPage); // Use cardsPerPage here
-    if (currentPage >= totalPages) {
-      document.getElementById('loadMore').style.display = 'none';
+        gameContainer.innerHTML = '';
+        const startIndex = (page - 1) * cardsPerPage;
+        const totalGames = games.length;
+        
+        for (let i = 0; i < cardsPerPage; i++) {
+            const gameIndex = (startIndex + i) % totalGames;
+            const gameId = games[gameIndex]["gameId"];
+            const isCurrentlyLiked = isGameLiked(gameId);
+            const gameData = document.createElement('div');
+            gameData.className = 'results';
+            gameData.innerHTML = `<div class="card">
+                <div class="imgBox">
+                    <img src="${games[gameIndex]["thumbnail"]}" alt="game photo" class="gamephoto">
+                </div>
+                <div class="contentBox">
+                    <h3>${games[gameIndex]["name"]}</h3><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                    <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
+                </span>
+                    <h3 class="year">${games[gameIndex]["yearPublished"]}</h3>
+                    <a href="game-details.html?gameId=${gameId}" class="learn">Learn More</a>
+                </div>
+            </div>`;
+            gameContainer.appendChild(gameData);
+        }
     }
 }
 
@@ -124,19 +121,30 @@ document.addEventListener('click', async (event) => {
     }
   })
 
+const prevButton = document.getElementById('prevButton');
+const nextButton = document.getElementById('nextButton');
 
-// Load an additional 8 more games to the page
-document.getElementById('loadMore').addEventListener('click', () => {
-    currentPage++;
-    const startIndex = (currentPage - 1) * resultsPerPage;
-    const endIndex = startIndex + resultsPerPage;
-    if (startIndex >= games.length) {
-        document.getElementById('loadMore').disabled = true;
-        return;
+prevPage.addEventListener('click', () => {
+    if (currentPage > 1) {
+        currentPage--;
+        displayGames(currentPage);
+        nextPage.removeAttribute('disabled');
     }
+    if (currentPage === 1) {
+        prevPage.setAttribute('disabled', true);
+    }
+});
 
-    cardsPerPage = resultsPerPage;
-    displayGames(currentPage);
+nextPage.addEventListener('click', () => {
+    const totalPages = Math.ceil(games.length / cardsPerPage);
+    if (currentPage < totalPages) {
+        currentPage++;
+        displayGames(currentPage);
+        prevPage.removeAttribute('disabled');
+    }
+    if (currentPage === totalPages) {
+        nextPage.setAttribute('disabled', true);
+    }
 });
 
 // Sort displayed data by year
