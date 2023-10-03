@@ -31,8 +31,17 @@
     position: relative;
 }
 
-.banner-gd {
-    background-image: url(images/gamedetails-banner.png);
+.banner-gg {
+    background-image: url(images/gameguide-banner3.png);
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.banner-liked {
+    background-image: url(images/likedgames-banner.png);
     height: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -214,6 +223,12 @@ body, html {
     text-align: center;
 }
 
+.liked-games-info {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    text-align: center;
+}
+
 .hotgames {
     display: flex;
     justify-content: center;
@@ -339,7 +354,6 @@ body, html {
 }
 
 .likedGames {
-    border-top: solid #000000;
     display: flex;
     justify-self: center;
     align-items: center;
@@ -678,15 +692,18 @@ footer {
 
 #sortByHot {
     margin-right: 10px;
+    align-items: center;
 }
 
 #sortByYear {
     margin-right: 10px;
     margin-left: 10px;
+    align-items: center;
 }
 
 #sortByName {
     margin-left: 10px;
+    align-items: center;
 }
 
 .display-btns {
@@ -694,4 +711,23 @@ footer {
     margin-right: 27.5%;
     display: flex;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+#viewLiked {
+    background-color: #d6983c;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+.liked-btn-contain {
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
