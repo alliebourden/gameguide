@@ -254,3 +254,10 @@ async function fetchGameDetails(gameId) {
         return null;
     }
 }
+
+document.getElementById('scrollUp').addEventListener('click', function() {
+    const targetSection = document.getElementById('viewLiked');
+    if (targetSection) {
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+    }
+});
