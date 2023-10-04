@@ -504,6 +504,7 @@ main button {
     justify-content: center;
     margin-top: 2vh;
 }
+
 .game-details {
     background: #d6983c;
     display: flex;
@@ -543,7 +544,6 @@ main button {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0;
 }
 
 .playtime {
@@ -582,6 +582,71 @@ main button {
     display: flex;
 }
 
+.mechanics {
+    display: flex;
+    align-items: center;
+}
+
+.mechanics h5 {
+    margin-right: 5px;
+}
+
+.collapsible-menu {
+    position: relative;
+    display: inline-block;
+}
+
+#mechanicsDropdownBtn {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    font-size: 14px;
+    width: 15em;
+    height: 2em;
+    padding: 0 4em 0 1em;
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em, linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    color: #d6983c;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    &::-ms-expand {
+      display: none;
+    }
+    &:focus {
+      outline: none;
+    }
+    display: block;
+}
+
+#mechanicsDropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+#mechanicsDropdown ul {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#mechanicsDropdown ul:hover {
+    background-color: #f0f0f0;
+}
+
+.collapsible-menu.active #mechanicsDropdown {
+    display: block;
+}
+
 #dice {
     display: flex;
     width: 25px;
@@ -589,40 +654,9 @@ main button {
     margin-right: 10px;
 }
 
-.mechanics {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.mechanics li {
-    font-size: 14px;;
-}
-
-input[type="checkbox"]{
-    position: absolute;
-    left: -9999px;
-  }
-  
-  input[type="checkbox"] ~ ul{
-    height: 0;
-    transform: scaleY(0);
-  }
-  
-  input[type="checkbox"]:checked ~ ul{
-    height: 100%;
-    transform-origin: center;
-    transform: translate(10px, 0%);
-    transition: transform .2s ease-out;
-  }
-
-.bottom-info {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 #gameDescription {
     font-size: 14px;
+    padding-top: 45px;
 }
 
 /* Contact Page */

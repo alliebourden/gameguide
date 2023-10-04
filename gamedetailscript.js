@@ -49,15 +49,16 @@ async function fetchGameDetails() {
     const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
     gameDetailsContainer.innerHTML = '';
     const gameId = getUrlParameter('gameId');
-    
+
     if (gameId) {
         const apiUrl = `${url}/thing/${gameId}`;
-        
+
         try {
             const res = await fetch(apiUrl);
-            
+
             if (res.ok) {
                 const gameDetails = await res.json();
+                console.log('Mechanics Data:', gameDetails.mechanics);
                 const gameDetailsDiv = document.createElement('div');
                 gameDetailsDiv.className = 'results';
                 const description = gameDetails.description;
@@ -66,7 +67,7 @@ async function fetchGameDetails() {
                     ? description.slice(0, maxCharacters) + '...'
                     : description;
                 gameDetailsDiv.innerHTML = `
-                    <div class="game-info">
+					<div class="game-info">
                         <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <h2 id="gameName">${gameDetails.name}</h2>
                         <div class="top-info">
@@ -78,29 +79,34 @@ async function fetchGameDetails() {
                                 <img src="images/clock.png" id="clock">
                                 <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
                             </div>
-                                <div class="mechanics">
+                            <div class="mechanics">
                                 <img src="images/dice.png" id="dice">
-                                    <input type="checkbox" id="mechs">
-                                        <label for="mechs" class="first"><h5>Click for Mechanics</h5></label>
-                                            <ul>
-                                                <li>${gameDetails.mechanics}</li>
-                                            </ul>
+                                <div class="collapsible-menu">
+                                    <button id="mechanicsDropdownBtn">Mechanics</button>
+                                        <ul id="mechanicsDropdown"></ul>
+                                </div>
                             </div>
-                        </div> 
+                        </div>
                         <div class="bottom-info">   
-                        <p id="gameDescription">${shortDescription}</p>
-                        ${description.length > maxCharacters
+                            <p id="gameDescription">${shortDescription}</p>
+                            ${description.length > maxCharacters
                             ? '<button id="read-more-btn">Read More</button>'
                             : ''}
                         </div>
-                    </div>
+					</div>
                 `;
                 gameDetailsContainer.appendChild(gameDetailsDiv);
+                const mechanicsDropdown = document.getElementById('mechanicsDropdown');
+                gameDetails.mechanics.forEach((mechanic) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = mechanic;
+                    mechanicsDropdown.appendChild(listItem);
+                });
+				setupMechanicsDropdownListeners();
                 const gameDescription = document.getElementById('gameDescription');
                 gameDescription.innerHTML = shortDescription;
                 const readMoreButton = document.getElementById('read-more-btn');
                 let isFullDescriptionVisible = false;
-                
                 if (readMoreButton) {
                     readMoreButton.addEventListener('click', () => {
                         isFullDescriptionVisible = !isFullDescriptionVisible;
@@ -123,4 +129,19 @@ async function fetchGameDetails() {
     } else {
         console.error('No gameId parameter found in the URL');
     }
+}
+
+function setupMechanicsDropdownListeners() {
+    var button = document.getElementById("mechanicsDropdownBtn");
+    var mechanicsContent = document.getElementById("mechanicsDropdown");
+    mechanicsContent.style.display = "none";
+    button.addEventListener("click", function() {
+        console.log("mechanics button clicked");
+        mechanicsContent.style.display = (mechanicsContent.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+        if (!mechanicsContent.contains(event.target) && !button.contains(event.target)) {
+            mechanicsContent.style.display = "none";
+        }
+    });
 }
