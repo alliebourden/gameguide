@@ -86,11 +86,13 @@ async function fetchGameDetails() {
                                                 <li>${gameDetails.mechanics}</li>
                                             </ul>
                             </div>
-                        </div>    
+                        </div> 
+                        <div class="bottom-info">   
                         <p id="gameDescription">${shortDescription}</p>
                         ${description.length > maxCharacters
                             ? '<button id="read-more-btn">Read More</button>'
                             : ''}
+                        </div>
                     </div>
                 `;
                 gameDetailsContainer.appendChild(gameDetailsDiv);
