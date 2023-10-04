@@ -771,8 +771,7 @@ footer {
         font-size: 14px;
     }
     #gameDescription {
-        padding-top: 0;
-        margin-top: 5px;
+        margin-top: 20px;
     }
     .mechanics {
         margin: 0;
@@ -782,6 +781,12 @@ footer {
 @media (max-width: 850px) {
     .nav-item a {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 845px) {
+    #gameDescription {
+        padding-top: 10px;
     }
 }
 
