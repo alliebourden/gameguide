@@ -50,15 +50,16 @@ async function fetchGameDetails() {
                             <div class="playtime">
                                 <img src="images/clock.png" id="clock">
                                 <h5 id="playtime">Playtime: ${gameDetails.playingTime} minutes</h5>
-                            <div class="mechanics">
+                            </div>
+                                <div class="mechanics">
                                 <img src="images/dice.png" id="dice">
-                                    <input type="checkbox" id="list-item-1">
-                                        <label for="list-item-1" class="first"><h5>Click for Mechanics</h5></label>
+                                    <input type="checkbox" id="mechs">
+                                        <label for="mechs" class="first"><h5>Click for Mechanics</h5></label>
                                             <ul>
-                                                <li><h5>${gameDetails.mechanics}</h5></li>
+                                                <li>${gameDetails.mechanics}</li>
                                             </ul>
                             </div>
-                        </div>
+                        </div>    
                         <p id="gameDescription">${shortDescription}</p>
                         ${description.length > maxCharacters
                             ? '<button id="read-more-btn">Read More</button>'

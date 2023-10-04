@@ -582,38 +582,6 @@ main button {
     display: flex;
 }
 
-.mechanics {
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-
-.mechanics h5 {
-    margin-right: 5px;
-}
-
-#mechanicsDropdown {
-    appearance: none;
-    border: 0;
-    outline: 0;
-    font: inherit;
-    font-size: 14px;
-    width: 15em;
-    height: 2em;
-    padding: 0 4em 0 1em;
-    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
-      linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
-    color: #d6983c;
-    border-radius: 0.25em;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    &::-ms-expand {
-      display: none;
-    }
-    &:focus {
-      outline: none;
-    }}
-
 #dice {
     display: flex;
     width: 25px;
@@ -621,9 +589,36 @@ main button {
     margin-right: 10px;
 }
 
+.mechanics {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.mechanics li {
+    font-size: 14px;;
+}
+
+input[type="checkbox"]{
+    position: absolute;
+    left: -9999px;
+  }
+  
+  input[type="checkbox"] ~ ul{
+    height: 0;
+    transform: scaleY(0);
+  }
+  
+  input[type="checkbox"]:checked ~ ul{
+    height: 100%;
+    transform-origin: center;
+    transform: translate(10px, 0%);
+    transition: transform .2s ease-out;
+    /* transform: scaleY(1);  */
+  }
+
 #gameDescription {
     font-size: 14px;
-    padding-top: 45px;
 }
 
 /* Contact Page */
@@ -831,20 +826,3 @@ footer {
         border-style: solid;
     }
 }
-
-input[type="checkbox"]{
-    position: absolute;
-    left: -9999px;
-  }
-  
-  input[type="checkbox"] ~ ul{
-    height: 0;
-    transform: scaleY(0);
-  }
-  
-  input[type="checkbox"]:checked ~ ul{
-    height: 100%;
-    transform-origin: top;
-    transition: transform .2s ease-out;
-    transform: scaleY(1); 
-  }
