@@ -380,6 +380,11 @@ main button {
     margin-bottom: 10px;
 }
 
+#viewLiked:hover {
+    background-color: #3799E1;
+    transition: ease 1s;
+}
+
 .liked-btn-contain {
     margin-left: 27.5%;
     margin-right: 27.5%;
@@ -505,15 +510,12 @@ main button {
     margin-top: 2vh;
 }
 
-#backGameGuideBtn {
-        font-size: 18px;
-        background-color: #d6983c;
-        color: #FFF;
-        padding: 20px;
-        border-radius: 30px;
-        text-decoration: none;
-        margin-bottom: 10px; 
-        margin-top: 10px;
+.back-btn-contain {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    margin-top: 15px;
 }
 
 .game-details {
