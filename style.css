@@ -415,9 +415,40 @@ main button {
     align-items: center;
 }
 
+#sortByHot {
+    margin-right: 10px;
+    align-items: center;
+}
+
+#sortByYear {
+    margin-right: 10px;
+    margin-left: 10px;
+    align-items: center;
+}
+
 #sortByName {
     margin-left: 10px;
     align-items: center;
+}
+
+#sortByName {
+    margin-left: 10px;
+    align-items: center;
+}
+
+#sortByHot:hover {
+    background-color:#D62C32;
+    transition: ease 1s;
+}
+
+#sortByYear:hover {
+    background-color:#D62C32;
+    transition: ease 1s;
+}
+
+#sortByName:hover {
+    background-color:#D62C32;
+    transition: ease 1s;
 }
 
 .display-btns {
