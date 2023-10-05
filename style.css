@@ -505,6 +505,17 @@ main button {
     margin-top: 2vh;
 }
 
+#backGameGuideBtn {
+        font-size: 18px;
+        background-color: #d6983c;
+        color: #FFF;
+        padding: 20px;
+        border-radius: 30px;
+        text-decoration: none;
+        margin-bottom: 10px; 
+        margin-top: 10px;
+}
+
 .game-details {
     background: #d6983c;
     display: flex;
@@ -652,6 +663,12 @@ main button {
     width: 25px;
     height: 25px;
     margin-right: 10px;
+}
+
+.bottom-info {
+    display: block;
+    justify-content: center;
+
 }
 
 #gameDescription {
