@@ -82,7 +82,7 @@ async function fetchGameDetails() {
                             <div class="mechanics">
                                 <img src="images/dice.png" id="dice">
                                 <div class="collapsible-menu">
-                                    <button id="mechanicsDropdownBtn">Mechanics</button>
+                                    <button id="mechanicsDropdownBtn">View Mechanics</button>
                                         <ul id="mechanicsDropdown"></ul>
                                 </div>
                             </div>

@@ -909,8 +909,14 @@ footer {
         height: 45px;
     }
     .back-btn-contain {
-        padding: 0;
-        margin: 0;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .back-btn-contain {
+    display: flex;
+    flex-wrap: wrap;
     }
 }
 
