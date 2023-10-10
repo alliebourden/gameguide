@@ -378,6 +378,12 @@ main button {
     border-radius: 30px;
     text-decoration: none;
     margin-bottom: 10px;
+    text-align: center;
+}
+
+#viewLiked:hover {
+    background-color: #3799E1;
+    transition: ease 1s;
 }
 
 .liked-btn-contain {
@@ -409,9 +415,40 @@ main button {
     align-items: center;
 }
 
+#sortByHot {
+    margin-right: 10px;
+    align-items: center;
+}
+
+#sortByYear {
+    margin-right: 10px;
+    margin-left: 10px;
+    align-items: center;
+}
+
 #sortByName {
     margin-left: 10px;
     align-items: center;
+}
+
+#sortByName {
+    margin-left: 10px;
+    align-items: center;
+}
+
+#sortByHot:hover {
+    background-color:#D62C32;
+    transition: ease 1s;
+}
+
+#sortByYear:hover {
+    background-color:#D62C32;
+    transition: ease 1s;
+}
+
+#sortByName:hover {
+    background-color:#D62C32;
+    transition: ease 1s;
 }
 
 .display-btns {
@@ -475,6 +512,7 @@ main button {
     background: #3799E1;
     border-radius: 15px;
     overflow: hidden;
+    
 }
 
 .liked-game-thumbnail {
@@ -483,9 +521,23 @@ main button {
     border-radius: 5px;
 }
 
+#liked-game-other {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.liked-page-heart {
+    margin-bottom: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
 #liked-game-other h3 {
     color: white;
     margin-right: 5px;
+    font-size: 16px;
 }
 
 .learn-liked {
@@ -504,6 +556,15 @@ main button {
     justify-content: center;
     margin-top: 2vh;
 }
+
+.back-btn-contain {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 27.5%;
+    margin-right: 27.5%;
+    margin-top: 15px;
+}
+
 .game-details {
     background: #d6983c;
     display: flex;
@@ -590,7 +651,12 @@ main button {
     margin-right: 5px;
 }
 
-#mechanicsDropdown {
+.collapsible-menu {
+    position: relative;
+    display: inline-block;
+}
+
+#mechanicsDropdownBtn {
     appearance: none;
     border: 0;
     outline: 0;
@@ -599,8 +665,7 @@ main button {
     width: 15em;
     height: 2em;
     padding: 0 4em 0 1em;
-    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,
-      linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em, linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
     color: #d6983c;
     border-radius: 0.25em;
     box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.1);
@@ -610,13 +675,49 @@ main button {
     }
     &:focus {
       outline: none;
-    }}
+    }
+    display: block;
+}
+
+#mechanicsDropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+#mechanicsDropdown ul {
+    padding: 10px;
+    cursor: pointer;
+}
+
+#mechanicsDropdown ul:hover {
+    background-color: #f0f0f0;
+}
+
+.collapsible-menu.active #mechanicsDropdown {
+    display: block;
+}
 
 #dice {
     display: flex;
     width: 25px;
     height: 25px;
     margin-right: 10px;
+}
+
+.bottom-info {
+    display: block;
+    justify-content: center;
+
 }
 
 #gameDescription {
@@ -736,17 +837,26 @@ footer {
         font-size: 14px;
     }
     #gameDescription {
-        padding-top: 0;
-        margin-top: 5px;
+        margin-top: 20px;
     }
     .mechanics {
         margin: 0;
+    }
+    .back-btn-contain {
+        margin-left: 10%;
+        margin-right: 10%;
     }
 }
 
 @media (max-width: 850px) {
     .nav-item a {
         font-size: 20px;
+    }
+}
+
+@media (max-width: 845px) {
+    #gameDescription {
+        padding-top: 10px;
     }
 }
 
@@ -812,6 +922,16 @@ footer {
     .players, .playtime, .mechanics {
         margin-right: 0;
         height: 45px;
+    }
+    .back-btn-contain {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 575px) {
+    .back-btn-contain {
+    display: flex;
+    flex-wrap: wrap;
     }
 }
 

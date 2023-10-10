@@ -3,9 +3,36 @@ const navEl = document.querySelector('.nav');
 const hamburgerEl = document.querySelector('.hamburger');
 
 hamburgerEl.addEventListener('click', () => {
-	navEl.classList.toggle('nav--open');
-	hamburgerEl.classList.toggle('hamburger--open');
-})
+    toggleMenu();
+});
+
+
+document.addEventListener('click', (event) => {
+    if (!isInsideMenu(event.target)) {
+        closeMenu();
+    }
+});
+
+
+window.addEventListener('scroll', () => {
+    closeMenu();
+});
+
+function isInsideMenu(element) {
+    return navEl.contains(element) || hamburgerEl.contains(element);
+}
+
+function closeMenu() {
+    if (navEl.classList.contains('nav--open')) {
+        navEl.classList.remove('nav--open');
+        hamburgerEl.classList.remove('hamburger--open');
+    }
+}
+
+function toggleMenu() {
+    navEl.classList.toggle('nav--open');
+    hamburgerEl.classList.toggle('hamburger--open');
+}
 
 // API url
 const url = 'https://bgg-json.azurewebsites.net';
@@ -22,13 +49,13 @@ async function fetchGameDetails() {
     const gameDetailsContainer = document.getElementsByClassName('game-details')[0];
     gameDetailsContainer.innerHTML = '';
     const gameId = getUrlParameter('gameId');
-    
+
     if (gameId) {
         const apiUrl = `${url}/thing/${gameId}`;
-        
+
         try {
             const res = await fetch(apiUrl);
-            
+
             if (res.ok) {
                 const gameDetails = await res.json();
                 const gameDetailsDiv = document.createElement('div');
@@ -39,7 +66,7 @@ async function fetchGameDetails() {
                     ? description.slice(0, maxCharacters) + '...'
                     : description;
                 gameDetailsDiv.innerHTML = `
-                    <div class="game-info">
+					<div class="game-info">
                         <img id="gameImage" src="${gameDetails.thumbnail}" alt="Game Image">
                         <h2 id="gameName">${gameDetails.name}</h2>
                         <div class="top-info">
@@ -53,35 +80,32 @@ async function fetchGameDetails() {
                             </div>
                             <div class="mechanics">
                                 <img src="images/dice.png" id="dice">
-                                <h5>Mechanics:</h5>
-                                <select id="mechanicsDropdown"></select>
+                                <div class="collapsible-menu">
+                                    <button id="mechanicsDropdownBtn">View Mechanics</button>
+                                        <ul id="mechanicsDropdown"></ul>
+                                </div>
                             </div>
                         </div>
-                        <p id="gameDescription">${shortDescription}</p>
-                        ${description.length > maxCharacters
+                        <div class="bottom-info">   
+                            <p id="gameDescription">${shortDescription}</p>
+                            ${description.length > maxCharacters
                             ? '<button id="read-more-btn">Read More</button>'
                             : ''}
-                    </div>
+                        </div>
+					</div>
                 `;
                 gameDetailsContainer.appendChild(gameDetailsDiv);
                 const mechanicsDropdown = document.getElementById('mechanicsDropdown');
-                mechanicsDropdown.innerHTML = '';
-                if (gameDetails.mechanics && gameDetails.mechanics.length > 0) {
-                    for (const mechanic of gameDetails.mechanics) {
-                        const option = document.createElement('option');
-                        option.text = mechanic;
-                        mechanicsDropdown.appendChild(option);
-                    }
-                } else {
-                    const defaultOption = document.createElement('option');
-                    defaultOption.text = 'No mechanics available';
-                    mechanicsDropdown.appendChild(defaultOption);
-                }
+                gameDetails.mechanics.forEach((mechanic) => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = mechanic;
+                    mechanicsDropdown.appendChild(listItem);
+                });
+				setupMechanicsDropdownListeners();
                 const gameDescription = document.getElementById('gameDescription');
                 gameDescription.innerHTML = shortDescription;
                 const readMoreButton = document.getElementById('read-more-btn');
                 let isFullDescriptionVisible = false;
-                
                 if (readMoreButton) {
                     readMoreButton.addEventListener('click', () => {
                         isFullDescriptionVisible = !isFullDescriptionVisible;
@@ -104,4 +128,18 @@ async function fetchGameDetails() {
     } else {
         console.error('No gameId parameter found in the URL');
     }
+}
+
+function setupMechanicsDropdownListeners() {
+    var button = document.getElementById("mechanicsDropdownBtn");
+    var mechanicsContent = document.getElementById("mechanicsDropdown");
+    mechanicsContent.style.display = "none";
+    button.addEventListener("click", function() {
+        mechanicsContent.style.display = (mechanicsContent.style.display === "block") ? "none" : "block";
+    });
+    document.addEventListener("click", function(event) {
+        if (!mechanicsContent.contains(event.target) && !button.contains(event.target)) {
+            mechanicsContent.style.display = "none";
+        }
+    });
 }
