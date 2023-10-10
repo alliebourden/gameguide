@@ -13,7 +13,6 @@ document.addEventListener('click', (event) => {
     }
 });
 
-
 window.addEventListener('scroll', () => {
     closeMenu();
 });
@@ -247,6 +246,7 @@ async function displayLikedGames() {
         for (const gameId of likedGames) {
             const gameData = await fetchGameDetails(gameId);
             if (gameData) {
+                const isCurrentlyLiked = isGameLiked(gameId);
                 const gameElement = document.createElement('div');
                 gameElement.className = 'liked-game';
                 gameElement.innerHTML = `
@@ -256,6 +256,9 @@ async function displayLikedGames() {
                     </div>
                     <div id="liked-game-other">
                         <h3>${gameData.name}</h3>
+                        <div><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                        <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
+                    </span></div>
                         <a href="game-details.html?gameId=${gameId}" class="learn-liked">Learn More</a>
                     </div>
                 </div>`;
