@@ -103,12 +103,10 @@ function handleFavoriteClick(event) {
                 addGameToFavorites(gameId);
                 favoriteElement.classList.add('liked');
                 heartIcon.textContent = '❤️';
-                console.log('red');
             } else {
                 removeGameFromFavorites(gameId);
                 favoriteElement.classList.remove('liked');
                 heartIcon.textContent = '🤍';
-                console.log('white');
             }
         }
     }
@@ -188,7 +186,6 @@ document.getElementById('sortByYear')?.addEventListener('click', () => {
                 return b.yearPublished - a.yearPublished;
             }
         });
-        console.log('year');
         const gameContainer = document.querySelector('.hotgame-contain');
         gameContainer.innerHTML = '';
         displayGames(currentPage);
@@ -208,7 +205,6 @@ document.getElementById('sortByName')?.addEventListener('click', () => {
                 return b.name.localeCompare(a.name);
             }
         });
-        console.log('name');
         const gameContainer = document.querySelector('.hotgame-contain');
         gameContainer.innerHTML = '';
         displayGames(currentPage);
@@ -228,7 +224,6 @@ document.getElementById('sortByHot')?.addEventListener('click', () => {
                 return b.rank - a.rank;
             }
         });
-        console.log('rank');
         const gameContainer = document.querySelector('.hotgame-contain');
         gameContainer.innerHTML = '';
         displayGames(currentPage);

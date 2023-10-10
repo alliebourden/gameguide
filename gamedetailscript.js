@@ -58,7 +58,6 @@ async function fetchGameDetails() {
 
             if (res.ok) {
                 const gameDetails = await res.json();
-                console.log('Mechanics Data:', gameDetails.mechanics);
                 const gameDetailsDiv = document.createElement('div');
                 gameDetailsDiv.className = 'results';
                 const description = gameDetails.description;
@@ -136,7 +135,6 @@ function setupMechanicsDropdownListeners() {
     var mechanicsContent = document.getElementById("mechanicsDropdown");
     mechanicsContent.style.display = "none";
     button.addEventListener("click", function() {
-        console.log("mechanics button clicked");
         mechanicsContent.style.display = (mechanicsContent.style.display === "block") ? "none" : "block";
     });
     document.addEventListener("click", function(event) {
