@@ -529,7 +529,7 @@ main button {
 }
 
 .liked-page-heart {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     justify-content: center;
     align-items: center;
 }
@@ -537,6 +537,7 @@ main button {
 #liked-game-other h3 {
     color: white;
     margin-right: 5px;
+    font-size: 16px;
 }
 
 .learn-liked {
