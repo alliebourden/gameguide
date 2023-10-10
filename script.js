@@ -256,9 +256,9 @@ async function displayLikedGames() {
                     </div>
                     <div id="liked-game-other">
                         <h3>${gameData.name}</h3>
-                        <div><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
+                        <div class="liked-page-heart"><span class="favorite${isGameLiked(gameId) ? ' liked' : ''}" data-game-id="${gameId}">
                         <span class="heart-icon${isGameLiked(gameId) ? ' liked' : ''}">${isCurrentlyLiked ? '❤️' : '🤍'}</span>
-                    </span></div>
+                        </span></div>
                         <a href="game-details.html?gameId=${gameId}" class="learn-liked">Learn More</a>
                     </div>
                 </div>`;

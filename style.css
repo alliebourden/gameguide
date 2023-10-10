@@ -512,12 +512,26 @@ main button {
     background: #3799E1;
     border-radius: 15px;
     overflow: hidden;
+    
 }
 
 .liked-game-thumbnail {
     margin: 10px;
     max-width: 150px;
     border-radius: 5px;
+}
+
+#liked-game-other {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.liked-page-heart {
+    margin-bottom: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
 #liked-game-other h3 {
