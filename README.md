@@ -1,3 +1,4 @@
+# <a href="https://alliebourden.github.io/gameguide/">Visit GameGuide Here!</a>
 # GameGuide - Get Coding Module 1 Project
 
 ## Introduction
